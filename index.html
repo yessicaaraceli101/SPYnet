@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Consorcio SPYnet</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Arsha
+  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+  * Updated: Aug 07 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename">
+          <img src="assets/img/logo.png" alt="Logo SPYnet" class="logo">
+          SPYnet
+      </h1>
+      <style>
+        .sitename {
+            display: flex; /* Coloca los elementos en línea */
+            align-items: center; /* Centra verticalmente */
+            gap: 10px; /* Espacio entre el logo y el texto */
+        }
+      
+        .logo {
+            width: 60px; /* Ajusta el tamaño del logo */
+            height: auto; /* Mantén la proporción del logo */
+        }
+      </style>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Inicio</a></li>
+          <li><a href="#about">Sobre SPYnet</a></li>
+          <li><a href="#services">Servicios y precios</a></li>
+          <li><a href="#portfolio">Corporativo</a></li>
+          <li><a href="#team">Equipo SPYnet</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+
+      <!--<a class="btn-getstarted" href="#about">Get Started</a>-->
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+            <h1>Proveedor de Servicios de Internet en la ciudad de Valenzuela.</h1>
+            <p>Ingresa para conocer nuestros planes y puedas saber elegir el plan que mejor se adapte a tu hogar.</p>
+            <div class="d-flex">
+              <a href="#about" class="btn-get-started">Conoce más sobre SPYnet</a>
+              <!--<a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>-->
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/IMG_20241119_113743.jpg" class="img-fluid animated" alt="">
+          </div>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients section light-background">
+
+      <div class="container" data-aos="zoom-in">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 40
+                },
+                "480": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 60
+                },
+                "640": {
+                  "slidesPerView": 4,
+                  "spaceBetween": 80
+                },
+                "992": {
+                  "slidesPerView": 5,
+                  "spaceBetween": 120
+                },
+                "1200": {
+                  "slidesPerView": 6,
+                  "spaceBetween": 120
+                }
+              }
+            }
+          </script>
+
+    </section><!-- /Clients Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Sobre SPYnet</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
+            <p>
+              En SPYnet, nos especializamos en llevar la mejor experiencia de Internet a hogares,
+              negocios y comunidades. Somos más que un proveedor de servicios de Internet, 
+              somos un puente hacia el mundo digital, 
+              comprometidos con la calidad, la velocidad y la accesibilidad.
+            </p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i> <span>Velocidad y estabilidad: Navega, trabaja y disfruta de tus contenidos favoritos.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Soporte al cliente de excelencia: Nuestro equipo está disponible para ayudarte cuando lo necesites, con atención personalizada y soluciones inmediatas.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Planes flexibles: Ofrecemos opciones que se adaptan a tus necesidades y presupuesto, desde paquetes básicos hasta servicios avanzados para negocios.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Innovación constante: En SPYnet, nos mantenemos a la vanguardia tecnológica para ofrecerte siempre lo mejor.</span></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <p>Descubre cómo SPYnet puede transformar tu experiencia de conectividad. Únete a nuestra red y sé parte del futuro digital. </p>
+            <a href="#services" class="read-more"><span>Ver más</span><i class="bi bi-arrow-right"></i></a>
+          </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Servicios</h2>
+        <p><strong>¿Cómo saber elegir el plan adecuado para ti?</strong></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-wifi icon"></i></div>
+              <h4><a href="" class="stretched-link">50 mb</a></h4>
+              <p>Este plan ofrece una velocidad de descarga de hasta 50 Mbps y es ideal 
+              para hogares pequeños o para personas que realizan actividades en línea básicas.
+              Cuenta con una conexión simétrica.</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-wifi icon"></i></div>
+              <h4><a href="" class="stretched-link">100 mb</a></h4>
+              <p>Este plan proporciona una velocidad de descarga de hasta 100 Mbps y es una opción 
+                equilibrada para familias medianas con un uso moderado a intensivo de internet.
+                Streaming en calidad HD y 4K en varios dispositivos simultáneamente.
+                Teletrabajo con videollamadas frecuentes y uso de herramientas en línea.
+                Juegos en línea.
+                Descargas de archivos de tamaño medio (películas, juegos).</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-wifi icon"></i></div>
+              <h4><a href="" class="stretched-link">150 mb</a></h4>
+              <p>Este plan ofrece una velocidad de hasta 150 Mbps, perfecta para hogares 
+                grandes o familias numerosas con alta demanda de internet.
+                Streaming en calidad 4K/UHD en varios dispositivos al mismo tiempo.
+                Descargas rápidas de archivos grandes, como juegos o películas en alta calidad.
+                Teletrabajo intensivo con múltiples videollamadas y transferencias de datos grandes.
+                Juegos en línea con baja latencia, incluso para varios jugadores simultáneos.</p>
+            </div>
+          </div>
+            <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+              <div class="service-item position-relative">
+                <div class="icon"><i class="bi bi-wifi icon"></i></div>
+                <h4><a href="" class="stretched-link">Precios:</a></h4>
+                <p><strong>50 mb:</strong> 130.000 gs.</p>
+                <p><strong>100 mb:</strong> 160.000 gs.</p>
+                <p><strong>150 mb:</strong> 200.000 gs.</p>
+                <p> Ofrecemos lo mejor a nuestros clientes.</p>
+                
+          </div>
+
+        </div>
+
+      </div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Corporativo</h2>
+        <p>Despliegue de fibra óptica para empresas y negocios.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">Todo</li>
+            <!-- Lista con íconos de Wi-Fi -->
+              
+            <li data-filter=".filter-app">
+            <i class="bi bi-wifi"></i>
+            </li>
+            <li data-filter=".filter-product">
+            <i class="bi bi-wifi"></i>
+            </li>
+            <li data-filter=".filter-branding">
+            <i class="bi bi-wifi"></i>
+            </li>
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/IMG-20241119-WA0105.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/IMG-20241204-WA0020.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG-20241212-WA0017.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/IMG-20241212-WA0070.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/IMG-20241115-WA0053.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG-20241212-WA0052.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/IMG-20241105-WA0008.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/IMG-20241203-WA0030.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG-20241107-WA0123.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG_20241217_083100.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG-20241217-WA0018.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG-20241217-WA0066.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/Screenshot_20241210_193800_WhatsApp.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG-20241204-WA0023.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/IMG-20241114-WA0007.jpg" class="img-fluid" alt="">
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Equipo SPYnet</h2>
+        <p>En SPYnet, contamos con un equipo de técnicos autorizados que trabajan con dedicación todos 
+          los días para asegurarse de que tu conexión a internet sea rápida, estable 
+          y siempre esté a la altura de tus expectativas.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/IMG_20241104_100439.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Yessica Araceli López</h4>
+                <span>Ing. Informática</span>
+                <p>Atención al cliente</p>
+                <p>Valenzuela.</p>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/IMG-20250203-WA0014.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Carlos</h4>
+                <span>Atención al cliente.</span>
+                <p>Sapucai.</p>
+                <div class="social">
+                  <a href="https://www.facebook.com/share/15BEtznCtZ/?mibextid=kFxxJD"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/carlos_balbuena29?igsh=dXlxZGE3NmxhcXh4&utm_source=qr"><i class="bi bi-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/IMG-20250203-WA0075.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Cristhian Alcaraz.</h4>
+                <p>Técnico.</p>
+                <div class="social">
+                  
+                  <a href="https://www.facebook.com/share/1CvT5Ks8b1/?mibextid=qi2Omg"><i class="bi bi-facebook"></i></a>
+                  <a href="https://www.instagram.com/invites/contact/?igsh=1u7fosedfwqy4&utm_content=kvpod8"><i class="bi bi-instagram"></i></a>
+                  
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member d-flex align-items-start">
+              <div class="pic"><img src="assets/img/team/team-4.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+                <p>Dolorum tempora officiis odit laborum officiis et et accusamus</p>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""> <i class="bi bi-linkedin"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Team Member -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+
+   <!-- Testimonios Section -->
+   <section id="testimonios" class="testimonios section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Testimonios</h2>
+    <p>Nuestros clientes comparten sus experiencias sobre cómo SPYnet ha transformado su conexión a internet y su vida digital.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonio card">
+          <div class="pic">
+            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+          </div>
+          <div class="testimonio-info">
+            <h4>Yessica Araceli López</h4>
+            <p>"Gracias a SPYnet, ahora tengo una conexión estable y rápida que me permite trabajar desde casa sin problemas. Su atención al cliente es insuperable."</p>
+          </div>
+        </div>
+      </div><!-- End Testimonio -->
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonio card">
+          <div class="pic">
+            <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+          </div>
+          <div class="testimonio-info">
+            <h4>Sarah Jhonson</h4>
+            <p>"Desde que contraté SPYnet, mi negocio ha crecido gracias a una conexión confiable y rápida. ¡Altamente recomendado!"</p>
+          </div>
+        </div>
+      </div><!-- End Testimonio -->
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="testimonio card">
+          <div class="pic">
+            <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+          </div>
+          <div class="testimonio-info">
+            <h4>William Anderson</h4>
+            <p>"SPYnet me ha brindado el soporte técnico que necesitaba. Ahora puedo disfrutar de streaming sin interrupciones."</p>
+          </div>
+        </div>
+      </div><!-- End Testimonio -->
+
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="testimonio card">
+          <div class="pic">
+            <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+          </div>
+          <div class="testimonio-info">
+            <h4>Amanda Jepson</h4>
+            <p>"La instalación fue rápida y sencilla. SPYnet ha cambiado completamente mi experiencia de navegación."</p>
+          </div>
+        </div>
+      </div><!-- End Testimonio -->
+
+    </div>
+
+  </div>
+
+</section><!-- End Testimonios Section -->
+
+
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contacto</h2>
+        <p>Contacta para más información sobre nuestros servicios.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-5">
+
+            <div class="info-wrap">
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-geo-alt flex-shrink-0"></i>
+                <div>
+                  <h3>Dirección</h3>
+                  <p>Barrio San Francisco.</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-telephone flex-shrink-0"></i>
+                <div>
+                  <h3>Celular</h3>
+                  <p>(0983) 399 215</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+                <div>
+                  <h3>Email</h3>
+                  <p>consorciospynet@gmail.com</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3598.5069638251657!2d-56.87185!3d-25.588064999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDM1JzE3LjAiUyA1NsKwNTInMTguNyJX!5e0!3m2!1ses-419!2spy!4v1735343274690!5m2!1ses-419!2spy" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <!-- Enlace de WhatsApp -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+              <p class="pb-3"><strong>Contáctanos por WhatsApp:</strong></p>
+              <a href="https://wa.link/7clz68" target="_blank" class="btn btn-whatsapp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; margin-right: 10px;">
+                Enviar mensaje por WhatsApp
+              </a>
+              <img src="assets/img/IMG_20241129_153924.jpg" alt="Imagen descriptiva" style="width: 70%; margin-top: 15px;">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer">
+
+   
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="d-flex align-items-center">
+            <span class="sitename">SPYNET</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Barrio San Francisco.</p>
+            <p>Sobre la ruta Teniente Eligio Montanía, frente a la plaza. Barrio San Francisco.</p>
+            <p class="mt-3"><strong>Celular:</strong> <span>(0983) 399 215</span></p>
+            <p><strong>Email:</strong> <span>info@example.com</span></p>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Únete a nuestra red</h4>
+          <ul>
+            <li><i class="bi bi-chevron-right"></i> <a href="#hero">Inicio</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#about">Sobre SPYnet</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#services">Servicios</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#portfolio">Corporativo</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#team">Equipo SPYnet</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="#contact">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Nuestros servicios</h4>
+          <ul>
+            <a>Internet por fibra óptica.</a>
+            <a>Es sin contrato.</a>
+            <a>De lunes a sábado de 08:00 a 12:00 y de 14:00 a 17:30 hrs</a>
+            <a>Con asistencia técnica hasta los domingos de 10:30 a 15:30 hrs</a>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+          <h4>Síguenos</h4>
+          <p>¡Nos puedes encontrar en facebook e instagram, dale clic y síguenos!</p>
+          <div class="social-links d-flex">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>SPYnet</span> <strong class="px-1 sitename">SPYNET</strong> <span>Sapucai y Valenzuela</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Internet por fibra Óptica 100%</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
