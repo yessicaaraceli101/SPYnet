@@ -2140,6 +2140,16 @@ section,
   color: #555;
   line-height: 1.5;
 }
+p {
+  text-align: justify;
+}
+
+p strong {
+  display: block; /* Convierte el texto en un bloque */
+  text-align: center; /* Centra el texto */
+  font-size: 18px; /* Ajusta el tamaño si es necesario */
+  margin-top: 15px; /* Agrega espacio arriba */
+}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
