@@ -2161,9 +2161,8 @@ p strong {
   display: inline-block;
 }
 .alinear-derecha {
-  display: block;
-  margin-left: auto;
-  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
 }
 /*--------------------------------------------------------------
 # Starter Section Section
