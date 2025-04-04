@@ -2150,6 +2150,21 @@ p strong {
   font-size: 18px; /* Ajusta el tamaño si es necesario */
   margin-top: 15px; /* Agrega espacio arriba */
 }
+
+.imagen-centrada {
+  display: block;
+  margin: 15px auto;
+  width: 83%;
+}
+.btn-espaciado {
+  margin-top: 20px;
+  display: inline-block;
+}
+.alinear-derecha {
+  display: block;
+  margin-left: auto;
+  width: fit-content;
+}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
