@@ -11,6 +11,29 @@
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
+
+@font-face {
+  font-family: 'HighSpeed';
+  src: 
+    url('../fonts/HighSpeed.otf') format('opentype'),
+    url('../fonts/HighSpeed.ttf') format('truetype');
+}
+
+.sitename {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: 'HighSpeed', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #222;
+  margin: 40px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+}
 :root {
   --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Jost",  sans-serif;
@@ -139,6 +162,7 @@ h6 {
     transform: rotate(360deg);
   }
 }
+
 
 /*--------------------------------------------------------------
 # Global Header
@@ -2154,12 +2178,13 @@ p strong {
 .imagen-centrada {
   display: block;
   margin: 15px auto;
-  width: 83%;
+  width: 65%;
 }
 .btn-espaciado {
   margin-top: 20px;
   display: inline-block;
 }
+
 
 /*--------------------------------------------------------------
 # Starter Section Section

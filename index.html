@@ -16,6 +16,8 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,11 +46,10 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">
-          <img src="assets/img/logo.png" alt="Logo SPYnet" class="logo">
-          SPYnet
-      </h1>
+         <img src="assets/img/logo.png" alt="">
+        <h1 style="font-family: 'HighSpeed', sans-serif; font-size: 1.5rem;">
+        SPYnet
+     </h1>
       <style>
         .sitename {
             display: flex; /* Coloca los elementos en línea */
@@ -67,15 +68,49 @@
         <ul>
           <li><a href="#hero" class="active">Inicio</a></li>
           <li><a href="#about">Sobre SPYnet</a></li>
-          <li><a href="#services">Servicios y precios</a></li>
-          <li><a href="#parental">Control Parental</a></li>
-          <li><a href="#portfolio">Corporativo</a></li>
+          <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
+          <li><a href="#portfolio">Galería</a></li>
+          <li><a href="#consorcio">Consorcio SPY</a></li>
+          <li><a href="#kits">Promo kits de cámaras</a></li>
+          <li><a href="#social">Compromiso Social</a></li>
           <li><a href="#team">Equipo SPYnet</a></li>
           <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#parental">Control Parental</a></li>
           <li><a href="#contact">Contacto</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <i class="mobile-nav-toggle d-lg-none bi bi-list" onclick="toggleMenu()"></i>
       </nav>
+
+      <style>
+  /* Permitir que los elementos del nav se acomoden en varias líneas */
+  #navmenu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Espacio entre elementos */
+  }
+
+  #navmenu a {
+    font-size: 14px; /* Letra más chica para que entren más */
+    padding: 8px 12px;
+  }
+
+  /* Menú hamburguesa más sensible en pantallas medianas */
+  @media (max-width: 992px) {
+    .mobile-nav-toggle {
+      display: inline-block !important;
+    }
+    #navmenu ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: white;
+    }
+    #navmenu ul.show {
+      display: flex;
+    }
+  }
+</style>
 
 
       <!--<a class="btn-getstarted" href="#about">Get Started</a>-->
@@ -94,7 +129,8 @@
       <!-- Texto y botones -->
       <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
         <h1>Internet por fibra óptica Sapucai y Valenzuela.</h1>
-        <p>Ingresa para conocer nuestros planes y puedas saber elegir el plan que mejor se adapte a tu hogar.</p>
+        <p>Conectamos más que dispositivos, conectamos personas, ideas y sueños.</p>
+        <p>¡BIENVENIDOS A SPYNET!</p>
         <div class="d-flex">
           <a href="#about" class="btn-get-started">Conoce más sobre SPYnet</a>
         </div>
@@ -105,10 +141,10 @@
         <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="assets/img/IMG_20241119_113743.jpg" class="d-block w-100 img-fluid animated" alt="Imagen 1">
+              <img src="assets/img/IMG_20241119_113743.jpg" class="d-block w-100 img-fluid" alt="Imagen 1">
             </div>
             <div class="carousel-item">
-              <img src="assets/img/sapucai.jpg" class="d-block w-100 img-fluid animated" alt="Imagen 2">
+              <img src="assets/img/sapucai.jpg" class="d-block w-100 img-fluid" alt="Imagen 2">
             </div>
           </div>
         </div>
@@ -162,11 +198,10 @@
               }
             }
           </script>
-
     </section><!-- /Clients Section -->
 
     <!-- About Section -->
-    <section id="about" class="about section">
+    <section id="about" class="about section">  
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -190,11 +225,72 @@
               <li><i class="bi bi-check2-circle"></i> <span>Planes flexibles: Ofrecemos opciones que se adaptan a tus necesidades y presupuesto, desde paquetes básicos hasta servicios avanzados para negocios.</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Innovación constante: En SPYnet, nos mantenemos a la vanguardia tecnológica para ofrecerte siempre lo mejor.</span></li>
             </ul>
+            <style>
+              .card-info {
+                background-color: #001f3f; /* Azul profesional */
+                color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                height: 100%;
+                transition: transform 0.3s ease;
+                text-align: justify;
+              }
+            
+              .card-info:hover {
+                transform: translateY(-5px);
+              }
+            
+              .card-info h4 {
+               font-weight: bold;
+               text-align: center;
+               margin-bottom: 15px;
+               color: white; /* Color blanco para los títulos */
+              }
+            </style>
+            
+            <div class="row g-4">
+              <!-- Misión -->
+              <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-item position-relative card-info">
+                  <h4>Misión</h4>
+                  <p>Brindar servicios de internet con excelencia técnica, atención personalizada y 
+                  disponibilidad constante, conectando hogares y empresas de forma confiable. Nos 
+                  comprometemos a escuchar, asistir y evolucionar junto a nuestros clientes.</p>
+                </div>
+              </div>
+            
+              <!-- Visión -->
+              <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-item position-relative card-info">
+                  <h4>Visión</h4>
+                  <p>Nos estamos proyectando a ser la empresa de internet más ágil e innovadora del mercado, redefiniendo la forma en que las personas se conectan y son asistidas. 
+                  Combinamos tecnología inteligente con atención humana todos los días, para ofrecer 
+                  una experiencia digital cercana, confiable y personalizada. Construimos un equipo 
+                  comprometido, con pasión por la mejora continua, que transforma cada interacción en 
+                  una oportunidad para evolucionar y conectar mejor</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <p>Descubre cómo SPYnet puede transformar tu experiencia de conectividad. Únete a nuestra red y sé parte del futuro digital. </p>
             <img src="assets/img/FB_IMG_1733609521821.jpg" alt="Imagen descriptiva" class="imagen-centrada">
+
+
+            <div class="col-12 content" data-aos="fade-up" data-aos-delay="100">
+            <strong>Valores Centrales</strong>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i> <span> <strong>Compromiso diario:</strong> Estamos siempre presentes, incluso los domingos.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>Atención humana:</strong> Detrás de cada solución técnica, hay una persona comprometida con ayudarte.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>Crecimiento constante:</strong> Aprendemos, nos capacitamos y mejoramos cada día.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>Lealtad interna:</strong>Construimos vínculos sólidos entre nuestro equipo y con nuestros clientes.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span><strong>Transparencia:</strong>Comunicamos con claridad y actuamos con integridad</span></li>
+            </ul>
+            </div>
+
+
             <div style="text-align: right;">
               <a href="#services" class="read-more btn-espaciado">
                 <span>Ver más</span><i class="bi bi-arrow-right"></i>
@@ -274,119 +370,46 @@
         </div>
 
       </div>
+<!-- Mapa de Cobertura -->
+<div class="row gy-4 mt-5">
 
-
-<!-- Services Section -->
-<section id="parental" class="services section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>CONECTATE SEGURO</h2>
-    <strong style="text-align: center;">HERRAMIENTAS SEGURAS PARA PROTEGER A TU FAMILIA EN INTERNET.</strong>
-    <p style="text-align: center;">Te recomendamos las siguientes herramientas gratuitas:</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon"><i class="bi bi-android icon"></i></div>
-          <h4>Android</h4>
-          <h4>Google Family Link</h4>
-          <p>
-            Family Link funciona con dispositivos Android con la versión 7.0 (Nougat) (15/06/2016), o superior.
-            Es posible que este mismo producto pueda ser utilizado en dispositivos con las versiones de Android 5.0
-            y 6.0 (Lollipop y Marshmallow).
-          </p>
-          <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.kids.familylink" class="btn btn-primary mt-4" target="_blank">
-            Descargar
-          </a>
-          <a href="https://families.google/intl/es-419_ALL/familylink/" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-            <i class="bi bi-windows icon" style="font-size: 2rem;"></i>
-          </div>
-          <h4>Windows</h4>
-          <h4>Windows Family Options</h4>
-          <p>
-            Desde la versión 10. Aplica solamente para cuentas de Microsoft Edge. 
-            Incluye la Administración de dispositivos iOS y Android vinculados a tu cuenta de Microsoft.
-          </p>
-          <a href="https://support.microsoft.com/es-es/windows/opciones-de-familia-en-la-aplicaci%C3%B3n-seguridad-de-windows-5e8b9fd8-8372-dba0-eba2-46da8e407026" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
-        </div>
-      </div>
-
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-            <i class="bi bi-apple icon" style="font-size: 2rem;"></i>
-          </div>
-          <h4>iOS</h4>
-          <h4>Contenido y privacidad de tiempo de uso</h4>
-          <p>
-            Desde la versión 13.4 (24/03/2020) y adelante.Equipos: iPhone 6s y posteriores,
-            iPad Air 2 y posteriores, iPad mini 4 y posteriores, y iPod touch (séptima generación)
-          </p>
-          <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
-        </div>
-      </div>
-
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-            <i class="bi bi-laptop icon" style="font-size: 2rem;"></i>
-          </div>
-          <h4>macOS</h4>
-          <h4>Contenido y privacidad de tiempo de uso</h4>
-          <p>
-            Desde la versión Catalina 10.15 (07/10/2019).Las mismas de iOS dado que las configuraciones están asociadas 
-            a la cuenta iCloud y no exclusivamente al dispositivo en sí.
-          </p>
-          <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
-        </div>
-      </div>
-            
-      </div>
+  <!-- Mapa de Valenzuela -->
+  <div class="col-md-6">
+    <h4 class="text-center">Cobertura en Valenzuela</h4>
+    <div class="map-responsive" style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+      <iframe 
+        src="https://www.google.com/maps/d/embed?mid=1sdAqF3KXQoa_DNfSsTitRS3n3FhT4qI&hl=es&ehbc=2E312F&noprof=1"
+        width="100%" height="300"
+        style="border:0;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
-
+    <p class="text-center mt-2">Zonas: San Francisco, Centro, Curupayty, Piraretã, Minas Cué, Compañía Mariscal López.</p>
+    <div class="text-center">
+      <a href="https://www.google.com/maps/d/viewer?mid=1sdAqF3KXQoa_DNfSsTitRS3n3FhT4qI&hl=es&usp=sharing" target="_blank" class="btn btn-outline-primary btn-sm mt-2">Ver en Google Maps</a>
+    </div>
   </div>
 
+  <!-- Mapa de Sapucai -->
+  <div class="col-md-6">
+    <h4 class="text-center">Cobertura en Sapucai</h4>
+    <div class="map-responsive" style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+      <iframe 
+        src="https://www.google.com/maps/d/embed?mid=1b_YNMzYim5SuApNBrqUzkL1il03BIw4&ehbc=2E312F&noprof=1"
+        width="100%" height="300"
+        style="border:0;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <p class="text-center mt-2">Zonas: Cerro Rokẽ, Arroyo Porã, Sapucai Centro.</p>
+    <div class="text-center">
+      <a href="https://www.google.com/maps/d/viewer?mid=1b_YNMzYim5SuApNBrqUzkL1il03BIw4&hl=es&usp=sharing" target="_blank" class="btn btn-outline-success btn-sm mt-2">Ver en Google Maps</a>
+    </div>
+  </div>
 
-<!-- Services Section -->
-<section id="services" class="services section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>CONTROLES PARENTALES</h2>
-    <p style="margin-top: 20px; text-align: justify;">
-    La Ley N° 5653 de Protección de niños, niñas y adolescentes contra contenidos nocivos de internet, de fecha 24 de agosto de 2016, establece en su Art. N° 1, que tiene por objeto la protección integral de niños, niñas y adolescentes a los efectos que puedan generar en ellos contenidos nocivos a que se accedan o se encuentren en Internet. 
-    Así mismo, el Decreto N° 8098-2022, de fecha 27 de octubre de 2022, reglamenta la Ley N° 5653-2016 de protección de niños, niñas y adolescentes contra contenidos nocivos de internet. 
-    </p>
-    <p style="margin-top: 20px;">
-      Otros recursos sobre cómo configurar de manera segura y proteger los dispositivos de sus hijos:
-    </p>
-  <a href="https://www.internetmatters.org/parental-controls/" class="btn btn-primary mt-4" target="_blank">
-    Parental Controls
-  </a>
-  </div><!-- End Section Title -->
 </div>
-
 
 
     <!-- Portfolio Section -->
@@ -394,9 +417,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Corporativo</h2>
+        <h2>Galería</h2>
         <p><strong>Telecomunicaciones</strong></p>
-            <p><strong>Soluciones tecnológicas</strong></p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -483,12 +505,13 @@
 
 
 
-          <section id="portfolio" class="portfolio section">
+          <section id="consorcio" class="portfolio section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-              <p><strong>CONSORCIO SPY</strong></p>
-            </div><!-- End Section Title -->
+            <h2>Consorcio SPY</h2>
+            <p><strong>Soluciones tecnológicas</strong></p>
+           </div><!-- End Section Title -->
       
             <div class="container">
       
@@ -544,6 +567,164 @@
 
 
 
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+
+
+
+    <section id="kits" class="portfolio section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+            <h2>Kits de Cámaras</h2>
+            <p><strong>SÚPER PROMO</strong></p>
+           </div><!-- End Section Title -->
+      
+            <div class="container">
+      
+              <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+      
+                 <!--<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100"> -->
+                   <!--<li data-filter="*" class="filter-active">Infraestructura</li> -->
+                 <!--  <li data-filter=".filter-app">-->
+                  <!--   <i class="bi bi-wifi">Equipo</i>-->
+                   <!--  </li>-->
+                   <!--  <li data-filter=".filter-product">-->
+                   <!--  <i class="bi bi-wifi">Instalaciones</i>-->
+                   <!--  </li>-->
+                   <!--  <li data-filter=".filter-branding">-->
+                   <!--  <i class="bi bi-wifi">Despliegue</i>-->
+                   <!--  </li>-->
+              <!--   </ul>--><!-- End Portfolio Filters -->
+      
+                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+      
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                    <img src="assets/img/kit1.jpg" class="img-fluid" alt="">
+                  </div><!-- End Portfolio Item -->
+      
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                    <img src="assets/img/kit2.jpg" class="img-fluid" alt="">
+                  </div><!-- End Portfolio Item -->
+      
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                    <img src="assets/img/kit3.jpg" class="img-fluid" alt="">
+                  </div><!-- End Portfolio Item -->
+      
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                    <img src="assets/img/kit4.jpg" class="img-fluid" alt="">
+                  </div><!-- End Portfolio Item -->
+      
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                    <img src="assets/img/kit5.jpg" class="img-fluid" alt="">
+                  </div><!-- End Portfolio Item -->
+      
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                    <img src="assets/img/kit6.jpg" class="img-fluid" alt="">
+                  </div><!-- End Portfolio Item -->
+      
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                    <img src="assets/img/kit7.jpg" class="img-fluid" alt="">
+                  </div><!-- End Portfolio Item -->
+
+                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                    <h4>Comunícate con nosotros:</h4>
+                    <a href="https://wa.me/595974500519" class="btn btn-whatsapp">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; margin-right: 10px;">
+                      Adquirir Kits Aquí
+                    </a>
+      
+                  </div><!-- End Portfolio Item -->
+      
+                </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+
+    <section id="social" class="portfolio section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+            <h2>COMPROMISO SOCIAL</h2>
+            <p><strong>Al servicio de la gente.</strong></p>
+           </div><!-- End Section Title -->
+      
+            <div class="container">
+      
+              <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+      
+                 <!--<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100"> -->
+                   <!--<li data-filter="*" class="filter-active">Infraestructura</li> -->
+                 <!--  <li data-filter=".filter-app">-->
+                  <!--   <i class="bi bi-wifi">Equipo</i>-->
+                   <!--  </li>-->
+                   <!--  <li data-filter=".filter-product">-->
+                   <!--  <i class="bi bi-wifi">Instalaciones</i>-->
+                   <!--  </li>-->
+                   <!--  <li data-filter=".filter-branding">-->
+                   <!--  <i class="bi bi-wifi">Despliegue</i>-->
+                   <!--  </li>-->
+              <!--   </ul>--><!-- End Portfolio Filters -->
+      
+  <div class="col-lg-12 col-md-12 portfolio-item isotope-item filter-app">
+  <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+
+    <!-- Contenedor para las dos imágenes una al lado de la otra -->
+    <div style="display: flex; gap: 10px; flex: 1; max-width: 40%;">
+      <img src="assets/img/fot4.jpg" alt="Educación Digital" style="width: 100%; height: auto; border-radius: 10px;">
+    </div>
+
+    <!-- Texto -->
+    <div style="flex: 2; min-width: 300px;">
+      <h4>Educación Digital Spy Net</h4>
+      <p><strong>Conectividad gratuita para el conocimiento del mañana.</strong> En Spy Net creemos que la educación es el motor del desarrollo. Por eso, implementamos el programa Educación Digital, a través del cual instalamos servicios de internet de forma gratuita en instituciones públicas educativas, sin costo mensual y con soporte técnico real.</p>
+      <p>Este compromiso permite que escuelas, colegios y centros educativos accedan a una conexión estable y segura, promoviendo la inclusión digital, el acceso a contenido educativo y el desarrollo de habilidades del siglo XXI.</p>
+      <ul>
+      <li><i class="bi bi-check2-circle"></i> <span> Instalación profesional sin costos ocultos.</span></li>
+      <li><i class="bi bi-check2-circle"></i> <span>Soporte técnico todos los días.</span></li>
+      <li><i class="bi bi-check2-circle"></i> <span>Acceso igualitario a la tecnología.</span></li>
+      <li><i class="bi bi-check2-circle"></i> <span>Alianzas con instituciones comprometidas con el futuro.</span></li>
+      </ul>
+      <p>Conectamos a quienes enseñan y a quienes aprenden, porque el conocimiento también necesita una buena señal.</p>
+    </div>
+
+
+   <div class="col-lg-12 col-md-12 portfolio-item isotope-item filter-app">
+  <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+
+    <!-- Contenedor para las dos imágenes una al lado de la otra -->
+   <!-- <div style="display: flex; gap: 10px; flex: 1; max-width: 40%;">-->
+      <!--<img src="assets/img/fot4.jpg" alt="Educación Digital1" style="width: 100%; height: auto; border-radius: 10px;">-->
+   <!-- </div>-->
+
+    <!-- Texto -->
+    <div style="flex: 2; min-width: 300px;">
+    <h4 style="text-align: center;">Conectividad Solidaria: Apoyo a Centros Comunitarios de Salud (USF)</h4>
+      <p><strong>Tecnología al servicio del cuidado comunitario.</strong> En Spy Net, creemos que el acceso a la salud merece respaldo tecnológico. Por eso extendemos nuestro compromiso social brindando servicios gratuitos de internet a los Centros Comunitarios de Salud (USF), acompañando la labor de profesionales que protegen vidas todos los días.</p>
+      <p>Desde centros urbanos hasta zonas rurales, nos aseguramos de que cada USF tenga acceso estable, asistencia técnica y conexión segura para fortalecer sus tareas médicas, administrativas y educativas.</p>
+      <ul>
+      <li><i class="bi bi-check2-circle"></i> <span> Instalación sin costo en unidades públicas.</span></li>
+      <li><i class="bi bi-check2-circle"></i> <span>Conectividad estable para gestión, comunicación y capacitación.</span></li>
+      <li><i class="bi bi-check2-circle"></i> <span>Asistencia técnica todos los días.</span></li>
+      <li><i class="bi bi-check2-circle"></i> <span>Apoyo a instituciones que cuidan a nuestra gente.</span></li>
+      </ul>
+      <p>Conectamos con responsabilidad, porque la salud también necesita buena señal.</p>
+    </div>
+
+  </div>
+</div>
+      
+      
+                </div><!-- End Portfolio Container -->
 
         </div>
 
@@ -733,6 +914,118 @@
 </section><!-- End Testimonios Section -->
 
 
+
+<!-- Services Section -->
+<section id="parental" class="services section light-background">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>CONECTATE SEGURO</h2>
+    <strong style="text-align: center;">HERRAMIENTAS SEGURAS PARA PROTEGER A TU FAMILIA EN INTERNET.</strong>
+    <p style="text-align: center;">Te recomendamos las siguientes herramientas gratuitas:</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative text-center">
+          <div class="icon"><i class="bi bi-android icon"></i></div>
+          <h4>Android</h4>
+          <h4>Google Family Link</h4>
+          <p>
+            Family Link funciona con dispositivos Android con la versión 7.0 (Nougat) (15/06/2016), o superior.
+            Es posible que este mismo producto pueda ser utilizado en dispositivos con las versiones de Android 5.0
+            y 6.0 (Lollipop y Marshmallow).
+          </p>
+          <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.kids.familylink" class="btn btn-primary mt-4" target="_blank">
+            Descargar
+          </a>
+          <a href="https://families.google/intl/es-419_ALL/familylink/" class="btn btn-primary mt-4" target="_blank">
+            Ver tutorial de uso
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative text-center">
+          <div class="icon">
+            <i class="bi bi-windows icon" style="font-size: 2rem;"></i>
+          </div>
+          <h4>Windows</h4>
+          <h4>Windows Family Options</h4>
+          <p>
+            Desde la versión 10. Aplica solamente para cuentas de Microsoft Edge. 
+            Incluye la Administración de dispositivos iOS y Android vinculados a tu cuenta de Microsoft.
+          </p>
+          <a href="https://support.microsoft.com/es-es/windows/opciones-de-familia-en-la-aplicaci%C3%B3n-seguridad-de-windows-5e8b9fd8-8372-dba0-eba2-46da8e407026" class="btn btn-primary mt-4" target="_blank">
+            Ver tutorial de uso
+          </a>
+        </div>
+      </div>
+
+
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative text-center">
+          <div class="icon">
+            <i class="bi bi-apple icon" style="font-size: 2rem;"></i>
+          </div>
+          <h4>iOS</h4>
+          <h4>Contenido y privacidad de tiempo de uso</h4>
+          <p>
+            Desde la versión 13.4 (24/03/2020) y adelante.Equipos: iPhone 6s y posteriores,
+            iPad Air 2 y posteriores, iPad mini 4 y posteriores, y iPod touch (séptima generación)
+          </p>
+          <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">
+            Ver tutorial de uso
+          </a>
+        </div>
+      </div>
+
+
+      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item position-relative text-center">
+          <div class="icon">
+            <i class="bi bi-laptop icon" style="font-size: 2rem;"></i>
+          </div>
+          <h4>macOS</h4>
+          <h4>Contenido y privacidad de tiempo de uso</h4>
+          <p>
+            Desde la versión Catalina 10.15 (07/10/2019).Las mismas de iOS dado que las configuraciones están asociadas 
+            a la cuenta iCloud y no exclusivamente al dispositivo en sí.
+          </p>
+          <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">
+            Ver tutorial de uso
+          </a>
+        </div>
+      </div>
+            
+      </div>
+    </div>
+
+  </div>
+
+
+<!-- Services Section -->
+<section id="services" class="services section light-background">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>CONTROLES PARENTALES</h2>
+    <p style="margin-top: 20px; text-align: justify;">
+    La Ley N° 5653 de Protección de niños, niñas y adolescentes contra contenidos nocivos de internet, de fecha 24 de agosto de 2016, establece en su Art. N° 1, que tiene por objeto la protección integral de niños, niñas y adolescentes a los efectos que puedan generar en ellos contenidos nocivos a que se accedan o se encuentren en Internet. 
+    Así mismo, el Decreto N° 8098-2022, de fecha 27 de octubre de 2022, reglamenta la Ley N° 5653-2016 de protección de niños, niñas y adolescentes contra contenidos nocivos de internet. 
+    </p>
+    <p style="margin-top: 20px;">
+      Otros recursos sobre cómo configurar de manera segura y proteger los dispositivos de sus hijos:
+    </p>
+  <a href="https://www.internetmatters.org/parental-controls/" class="btn btn-primary mt-4" target="_blank">
+    Parental Controls
+  </a>
+  </div><!-- End Section Title -->
+</div>
+
     
     <!-- Contact Section -->
     <section id="contact" class="contact section">
@@ -900,6 +1193,11 @@
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  function toggleMenu() {
+    document.querySelector('#navmenu ul').classList.toggle('show');
+  }
+</script>
 </body>
 
 </html>
