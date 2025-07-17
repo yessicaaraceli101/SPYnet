@@ -64,22 +64,24 @@
       </style>
       </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Inicio</a></li>
-          <li><a href="#about">Sobre SPYnet</a></li>
-          <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
-          <li><a href="#portfolio">Galería</a></li>
-          <li><a href="#consorcio">Consorcio SPY</a></li>
-          <li><a href="#kits">Promo kits de cámaras</a></li>
-          <li><a href="#social">Compromiso Social</a></li>
-          <li><a href="#team">Equipo SPYnet</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#parental">Control Parental</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-lg-none bi bi-list" onclick="toggleMenu()"></i>
-      </nav>
+<nav id="navmenu" class="navmenu">
+  <div class="nav-container">
+    <ul>
+      <li><a href="#hero" class="active">Inicio</a></li>
+      <li><a href="#about">Sobre SPYnet</a></li>
+      <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
+      <li><a href="#portfolio">Galería</a></li>
+      <li><a href="#consorcio">Consorcio SPY</a></li>
+      <li><a href="#kits">Promo kits de cámaras</a></li>
+      <li><a href="#social">Compromiso Social</a></li>
+      <li><a href="#team">Equipo SPYnet</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#parental">Control Parental</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+    <i class="mobile-nav-toggle bi bi-list" onclick="toggleMenu()"></i>
+  </div>
+</nav>
 
       <style>
   /* Permitir que los elementos del nav se acomoden en varias líneas */
@@ -1195,7 +1197,7 @@
 
 <script>
   function toggleMenu() {
-    document.querySelector('#navmenu ul').classList.toggle('show');
+    document.body.classList.toggle('mobile-nav-active');
   }
 </script>
 </body>
