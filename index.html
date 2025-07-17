@@ -89,9 +89,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px; /* Espacio entre elementos */
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
-
   #navmenu a {
     font-size: 14px; /* Letra más chica para que entren más */
     padding: 8px 12px;
@@ -99,9 +101,12 @@
 
   /* Menú hamburguesa más sensible en pantallas medianas */
   @media (max-width: 992px) {
-    .mobile-nav-toggle {
-      display: inline-block !important;
-    }
+  .mobile-nav-toggle {
+    display: inline-block !important;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 999;
+  }
     #navmenu ul {
       display: none;
       flex-direction: column;
@@ -682,7 +687,7 @@
 
     <!-- Contenedor para las dos imágenes una al lado de la otra -->
     <div style="display: flex; gap: 10px; flex: 1; max-width: 40%;">
-      <!--<img src="assets/img/fot4.jpg" alt="Educación Digital" style="width: 100%; height: auto; border-radius: 10px;">-->
+      <img src="assets/img/fot4.jpg" alt="Educación Digital" style="width: 100%; height: auto; border-radius: 10px;">
     </div>
 
     <!-- Texto -->
@@ -1197,8 +1202,19 @@
 
 <script>
   function toggleMenu() {
-    document.body.classList.toggle('mobile-nav-active');
+    const menu = document.querySelector('#navmenu ul');
+    menu.classList.toggle('show');
   }
+
+  // Cierra el menú después de hacer clic en un enlace (solo en móvil)
+  document.querySelectorAll('#navmenu ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+      const menu = document.querySelector('#navmenu ul');
+      if (window.innerWidth <= 992) {
+        menu.classList.remove('show');
+      }
+    });
+  });
 </script>
 </body>
 
