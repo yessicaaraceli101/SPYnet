@@ -863,7 +863,7 @@
             <li><a href="#parental">Control Parental</a></li>
             <li><a href="#contact">Contacto</a></li>
           </ul>
-          <i class="mobile-nav-toggle" onclick="toggleMenu()">☰</i>
+          <i class="mobile-nav-toggle" onclick="toggleMenu()"></i>
         </div>
       </nav>
     </div>
@@ -2161,20 +2161,11 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 function toggleMenu() {
   document.body.classList.toggle("mobile-nav-active");
-
-  const icon = document.querySelector(".mobile-nav-toggle");
-  if (document.body.classList.contains("mobile-nav-active")) {
-    icon.textContent = "✕";
-  } else {
-    icon.textContent = "☰";
-  }
 }
 
 document.querySelectorAll('#navmenu a').forEach(link => {
   link.addEventListener('click', () => {
     document.body.classList.remove("mobile-nav-active");
-    const icon = document.querySelector(".mobile-nav-toggle");
-    if (icon) icon.textContent = "☰";
   });
 });
 </script>
