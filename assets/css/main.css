@@ -3232,6 +3232,66 @@ p strong {
   }
 
 }
+
+@media (max-width: 992px) {
+  #navmenu {
+    position: relative;
+    width: 100%;
+  }
+
+  #navmenu .nav-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-block !important;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  #navmenu ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    padding: 18px;
+    margin: 0;
+    list-style: none;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    z-index: 1000;
+  }
+
+  #navmenu ul.show {
+    display: flex;
+  }
+
+  #navmenu ul li {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  #navmenu ul li a {
+    display: block;
+    width: 100%;
+    color: #243f70 !important;
+    font-size: 16px;
+    padding: 10px 8px;
+    border-radius: 8px;
+  }
+
+  #navmenu ul li a:hover {
+    background: rgba(52, 84, 139, 0.08);
+  }
+}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
