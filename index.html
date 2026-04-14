@@ -2158,30 +2158,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-
 <script>
 function toggleMenu() {
-  const menu = document.querySelector('.navbar ul');
-  const icon = document.querySelector('.mobile-nav-toggle');
+  document.body.classList.toggle("mobile-nav-active");
 
-  menu.classList.toggle('show');
-
-  if (menu.classList.contains('show')) {
-    icon.innerHTML = "✕";
+  const icon = document.querySelector(".mobile-nav-toggle");
+  if (document.body.classList.contains("mobile-nav-active")) {
+    icon.textContent = "✕";
   } else {
-    icon.innerHTML = "☰";
+    icon.textContent = "☰";
   }
 }
-</script>
 
-<script>
-function toggleMenu() {
-  const menu = document.querySelector('#navmenu ul');
-  const icon = document.querySelector('.mobile-nav-toggle');
-
-  menu.classList.toggle('show');
-  icon.textContent = menu.classList.contains('show') ? '✕' : '☰';
-}
+document.querySelectorAll('#navmenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.body.classList.remove("mobile-nav-active");
+    const icon = document.querySelector(".mobile-nav-toggle");
+    if (icon) icon.textContent = "☰";
+  });
+});
 </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

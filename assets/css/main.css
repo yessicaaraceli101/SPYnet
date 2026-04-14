@@ -3292,6 +3292,16 @@ p strong {
     background: rgba(52, 84, 139, 0.08);
   }
 }
+
+.mobile-nav-active .navmenu ul {
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background: linear-gradient(135deg, #243f70, #34548b);
+  }
+}
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
