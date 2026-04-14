@@ -1,178 +1,928 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>SPYnet</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="description" content="Internet por fibra óptica en Sapucai y Valenzuela.">
+  <meta name="keywords" content="internet, fibra óptica, SPYnet, Sapucai, Valenzuela, cámaras, corporativo">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/logo2.png" rel="logo2">
 
-  <!-- Fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Arsha
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <style>
+    :root {
+      --spynet-primary: #34548b;
+      --spynet-primary-dark: #243f70;
+      --spynet-accent: #52b7f0;
+      --spynet-bg: #f4f7fc;
+      --spynet-surface: #ffffff;
+      --spynet-text: #22304f;
+      --spynet-muted: #6d7b98;
+      --spynet-border: rgba(52, 84, 139, 0.10);
+      --spynet-shadow: 0 18px 45px rgba(25, 48, 94, 0.12);
+      --spynet-shadow-hover: 0 24px 50px rgba(25, 48, 94, 0.18);
+      --spynet-radius: 22px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body.index-page {
+      font-family: 'Poppins', sans-serif;
+      background: var(--spynet-bg);
+      color: var(--spynet-text);
+    }
+
+    section.section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 2.15rem;
+      font-weight: 800;
+      color: var(--spynet-primary-dark);
+      margin-bottom: 12px;
+      text-transform: none;
+      letter-spacing: 0.2px;
+    }
+
+    .section-title p,
+    .section-title strong {
+      color: var(--spynet-muted);
+      font-size: 1rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      line-height: 1.8;
+    }
+
+    p {
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .header {
+      background: rgba(52, 84, 139, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 35px rgba(19, 35, 70, 0.18);
+      padding: 12px 0;
+      transition: 0.3s ease;
+    }
+
+    .logo {
+      gap: 10px;
+    }
+
+    .logo img {
+      max-height: 46px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.12));
+    }
+
+    .logo h1 {
+      margin: 0;
+      color: #fff;
+      font-family: 'Jost', sans-serif !important;
+      font-size: 1.85rem !important;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    #navmenu {
+      margin-left: auto;
+    }
+
+    #navmenu .nav-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #navmenu ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #navmenu ul li {
+      margin: 0;
+    }
+
+    #navmenu a {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+      border-radius: 999px;
+      transition: all 0.25s ease;
+      line-height: 1.2;
+    }
+
+    #navmenu a:hover,
+    #navmenu a.active {
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+    }
+
+    .mobile-nav-toggle {
+      display: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(36, 63, 112, 0.96), rgba(52, 84, 139, 0.92)),
+        radial-gradient(circle at top right, rgba(82, 183, 240, 0.22), transparent 35%);
+      padding-top: 150px;
+      padding-bottom: 90px;
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 800;
+      margin-bottom: 18px;
+      max-width: 640px;
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 1.06rem;
+      margin-bottom: 12px;
+      max-width: 560px;
+    }
+
+    .hero .hero-sub {
+      color: #bfe8ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .btn-get-started,
+    .btn-whatsapp,
+    .btn-primary,
+    .btn-outline-primary,
+    .btn-outline-success,
+    .read-more {
+      border-radius: 999px !important;
+      font-weight: 600;
+      padding: 12px 24px !important;
+      transition: all 0.25s ease;
+      box-shadow: 0 12px 24px rgba(27, 64, 130, 0.14);
+    }
+
+    .btn-get-started {
+      background: linear-gradient(135deg, var(--spynet-accent), #40a6df);
+      color: #fff !important;
+      border: 0;
+    }
+
+    .btn-get-started:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 34px rgba(82, 183, 240, 0.28);
+      color: #fff !important;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #fff !important;
+      border: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebd59;
+      color: #fff !important;
+      transform: translateY(-2px);
+    }
+
+    .hero-img {
+      position: relative;
+    }
+
+    #heroCarousel {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 14px;
+      border-radius: 28px;
+      box-shadow: 0 24px 50px rgba(14, 26, 53, 0.28);
+      backdrop-filter: blur(6px);
+    }
+
+    #heroCarousel .carousel-inner,
+    #heroCarousel .carousel-item,
+    #heroCarousel img {
+      border-radius: 20px;
+    }
+
+    #heroCarousel img {
+      min-height: 420px;
+      max-height: 420px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .light-background {
+      background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%) !important;
+    }
+
+    .content ul,
+    .service-item ul,
+    .footer-links ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .content ul li,
+    .service-item ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--spynet-text);
+    }
+
+    .content ul li i,
+    .service-item ul li i {
+      color: var(--spynet-accent);
+      margin-top: 3px;
+      font-size: 1rem;
+    }
+
+    .service-item,
+    .team-member,
+    .testimonio,
+    .info-wrap,
+    .card-info,
+    .contact .info-item,
+    .portfolio-item img {
+      border-radius: var(--spynet-radius);
+    }
+
+    .service-item,
+    .team-member,
+    .testimonio,
+    .info-wrap {
+      background: var(--spynet-surface);
+      border: 1px solid var(--spynet-border);
+      box-shadow: var(--spynet-shadow);
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover,
+    .team-member:hover,
+    .testimonio:hover,
+    .portfolio-item img:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--spynet-shadow-hover);
+    }
+
+    .service-item {
+      padding: 28px 24px;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .service-item .icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(82, 183, 240, 0.16), rgba(52, 84, 139, 0.10));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .service-item .icon i,
+    .service-item .icon svg {
+      color: var(--spynet-primary);
+      font-size: 2rem;
+    }
+
+    .service-item h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--spynet-primary-dark);
+      margin-bottom: 14px;
+    }
+
+    .service-item p,
+    .service-item span {
+      color: var(--spynet-muted);
+      line-height: 1.8;
+    }
+
+    .card-info {
+      background: linear-gradient(135deg, #29497e 0%, #1d3158 100%);
+      color: #fff;
+      padding: 28px 24px;
+      border: 0;
+      box-shadow: 0 20px 40px rgba(24, 48, 90, 0.24);
+      height: 100%;
+      transition: all 0.3s ease;
+      text-align: justify;
+    }
+
+    .card-info:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-info h4 {
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 14px;
+      color: #fff;
+      font-size: 1.25rem;
+    }
+
+    .card-info p {
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 0;
+    }
+
+    .imagen-centrada,
+    .imagen-responsive,
+    .contact-visual,
+    .portfolio-item img,
+    .team-member .pic img,
+    .testimonial-img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: block;
+      object-fit: cover;
+      box-shadow: 0 16px 38px rgba(30, 50, 90, 0.12);
+    }
+
+    .imagen-centrada {
+      margin: 18px 0 22px;
+    }
+
+    .portfolio-item {
+      overflow: visible;
+    }
+
+    .portfolio-item img {
+      border: 1px solid rgba(43, 70, 122, 0.10);
+    }
+
+    .portfolio-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .portfolio-filters li {
+      background: #fff;
+      color: var(--spynet-primary-dark);
+      padding: 10px 18px;
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(25, 48, 94, 0.08);
+      border: 1px solid rgba(52, 84, 139, 0.10);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .portfolio-filters .filter-active {
+      background: var(--spynet-primary);
+      color: #fff;
+    }
+
+    .map-card {
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid var(--spynet-border);
+      box-shadow: var(--spynet-shadow);
+      padding: 18px;
+      height: 100%;
+    }
+
+    .map-card h4 {
+      color: var(--spynet-primary-dark);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .map-responsive {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(29, 49, 88, 0.10);
+    }
+
+    .video-box {
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid var(--spynet-border);
+      box-shadow: var(--spynet-shadow);
+      padding: 22px;
+      margin-top: 10px;
+    }
+
+    .video-box video {
+      width: 100%;
+      max-width: 650px;
+      border-radius: 18px;
+      box-shadow: 0 16px 36px rgba(28, 46, 81, 0.18);
+      border: 4px solid #dfeefe;
+    }
+
+    .team-member {
+      padding: 22px;
+      gap: 18px;
+    }
+
+    .team-member .pic {
+      flex: 0 0 130px;
+    }
+
+    .team-member .pic img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+    }
+
+    .member-info h4 {
+      color: var(--spynet-primary-dark);
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .member-info span,
+    .member-info p {
+      color: var(--spynet-muted);
+      margin-bottom: 8px;
+    }
+
+    .member-info .social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(52, 84, 139, 0.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--spynet-primary);
+      margin-right: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .member-info .social a:hover {
+      background: var(--spynet-primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .testimonio.card {
+      border: 0;
+      padding: 22px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 18px;
+      height: 100%;
+    }
+
+    .testimonio .pic {
+      flex: 0 0 110px;
+    }
+
+    .testimonial-img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+    }
+
+    .testimonio-info h4 {
+      color: var(--spynet-primary-dark);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .testimonio-info p {
+      color: var(--spynet-muted);
+      margin: 0;
+    }
+
+    .contact .info-wrap {
+      padding: 24px;
+    }
+
+    .contact .info-item {
+      background: #f9fbff;
+      border: 1px solid rgba(52, 84, 139, 0.08);
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: none;
+    }
+
+    .contact .info-item i {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(82, 183, 240, 0.16);
+      color: var(--spynet-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      font-size: 1.2rem;
+    }
+
+    .contact .info-item h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: var(--spynet-primary-dark);
+      font-weight: 700;
+    }
+
+    .contact .info-item p {
+      margin: 0;
+      color: var(--spynet-muted);
+    }
+
+    .info-wrap iframe {
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(25, 48, 94, 0.10);
+      margin-top: 8px;
+    }
+
+    .contact-cta-box {
+      background: linear-gradient(135deg, #ffffff, #f4f9ff);
+      border: 1px solid var(--spynet-border);
+      box-shadow: var(--spynet-shadow);
+      border-radius: 26px;
+      padding: 34px 24px;
+      text-align: center;
+      height: 100%;
+    }
+
+    .contact-cta-box p {
+      color: var(--spynet-muted);
+    }
+
+    .contact-visual {
+      width: 72%;
+      margin: 22px auto 0;
+    }
+
+    .footer {
+      background: linear-gradient(180deg, #243f70 0%, #1f355e 100%);
+      color: rgba(255, 255, 255, 0.88);
+      padding-top: 60px;
+    }
+
+    .footer a,
+    .footer p,
+    .footer span,
+    .footer li {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer h4,
+    .footer .sitename {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .footer-top {
+      padding-bottom: 28px;
+    }
+
+    .footer .social-links a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.10);
+      margin-right: 10px;
+      transition: all 0.25s ease;
+    }
+
+    .footer .social-links a:hover {
+      background: var(--spynet-accent);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+      padding-top: 24px;
+      padding-bottom: 26px;
+    }
+
+    .centrado {
+      text-align: center;
+    }
+
+    .spynet-social-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      background: #fff;
+      border: 1px solid var(--spynet-border);
+      box-shadow: var(--spynet-shadow);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .spynet-social-block img {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 16px 34px rgba(29, 49, 88, 0.14);
+    }
+
+    .spynet-social-block .social-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .spynet-social-block .social-text h4 {
+      color: var(--spynet-primary-dark);
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: left;
+    }
+
+    .spynet-social-block .social-text p,
+    .spynet-social-block .social-text li,
+    .spynet-social-block .social-text span {
+      color: var(--spynet-muted);
+    }
+
+    .spynet-note {
+      background: linear-gradient(135deg, #f7fbff, #edf5ff);
+      border-radius: 20px;
+      padding: 22px;
+      border: 1px solid rgba(52, 84, 139, 0.08);
+      margin-top: 22px;
+    }
+
+    @media (max-width: 1200px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      #navmenu a {
+        font-size: 13px;
+        padding: 9px 12px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .header {
+        padding: 10px 0;
+      }
+
+      .mobile-nav-toggle {
+        display: inline-flex !important;
+      }
+
+      #navmenu .nav-container {
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+      }
+
+      #navmenu ul {
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        background: #fff;
+        border-radius: 18px;
+        padding: 14px;
+        margin-top: 10px;
+        box-shadow: 0 18px 38px rgba(19, 35, 70, 0.16);
+      }
+
+      #navmenu ul.show {
+        display: flex;
+      }
+
+      #navmenu a {
+        color: var(--spynet-primary-dark);
+        width: 100%;
+        border-radius: 12px;
+        justify-content: flex-start;
+      }
+
+      #navmenu a:hover,
+      #navmenu a.active {
+        background: rgba(52, 84, 139, 0.08);
+        color: var(--spynet-primary-dark);
+      }
+
+      .hero {
+        padding-top: 135px;
+        text-align: center;
+      }
+
+      .hero h1,
+      .hero p {
+        max-width: 100%;
+      }
+
+      .hero .d-flex {
+        justify-content: center;
+      }
+
+      #heroCarousel img {
+        min-height: 320px;
+        max-height: 320px;
+      }
+
+      .team-member,
+      .testimonio.card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .team-member .pic,
+      .testimonio .pic {
+        flex: none;
+      }
+
+      .contact-visual {
+        width: 100%;
+      }
+
+      .spynet-social-block {
+        flex-direction: column;
+      }
+
+      .spynet-social-block img {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section.section {
+        padding: 65px 0;
+      }
+
+      .section-title h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 0.98rem;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem !important;
+      }
+
+      .imagen-responsive {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
       <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-         <img src="assets/img/logo.png" alt="">
-        <h1 style="font-family: 'HighSpeed', sans-serif; font-size: 1.5rem;">
-        SPYnet
-     </h1>
-      <style>
-        .sitename {
-            display: flex; /* Coloca los elementos en línea */
-            align-items: center; /* Centra verticalmente */
-            gap: 5px; /* Espacio entre el logo y el texto */
-        }
-      
-        .logo {
-            width: 15; /* Ajusta el tamaño del logo */
-            height: auto; /* Mantén la proporción del logo */
-        }
-      </style>
+        <img src="assets/img/logo.png" alt="SPYnet">
+        <h1>SPYnet</h1>
       </a>
 
-<nav id="navmenu" class="navmenu">
-  <div class="nav-container">
-    <ul>
-      <li><a href="#hero" class="active">Inicio</a></li>
-      <li><a href="#about">Sobre SPYnet</a></li>
-      <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
-      <li><a href="#planes">Planes Corporativos</a></li>
-      <li><a href="#portfolio">Galería</a></li>
-      <li><a href="#consorcio">Consorcio SPY</a></li>
-      <li><a href="#kits">Promo kits de cámaras</a></li>
-      <li><a href="#social">Compromiso Social</a></li>
-      <li><a href="#team">Equipo SPYnet</a></li>
-      <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#parental">Control Parental</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
-    <i class="mobile-nav-toggle bi bi-list" onclick="toggleMenu()"></i>
-  </div>
-</nav>
-
-      <style>
-  /* Permitir que los elementos del nav se acomoden en varias líneas */
-  #navmenu ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  #navmenu a {
-    font-size: 14px; /* Letra más chica para que entren más */
-    padding: 8px 12px;
-  }
-
-  /* Menú hamburguesa más sensible en pantallas medianas */
-  @media (max-width: 992px) {
-  .mobile-nav-toggle {
-    display: inline-block !important;
-    cursor: pointer;
-    font-size: 24px;
-    z-index: 999;
-  }
-    #navmenu ul {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: white;
-    }
-    #navmenu ul.show {
-      display: flex;
-    }
-  }
-</style>
-
-
-      <!--<a class="btn-getstarted" href="#about">Get Started</a>-->
-
+      <nav id="navmenu" class="navmenu">
+        <div class="nav-container">
+          <ul>
+            <li><a href="#hero" class="active">Inicio</a></li>
+            <li><a href="#about">Sobre SPYnet</a></li>
+            <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
+            <li><a href="#planes">Planes Corporativos</a></li>
+            <li><a href="#portfolio">Galería</a></li>
+            <li><a href="#consorcio">Consorcio SPY</a></li>
+            <li><a href="#kits">Promo kits de cámaras</a></li>
+            <li><a href="#social">Compromiso Social</a></li>
+            <li><a href="#team">Equipo SPYnet</a></li>
+            <li><a href="#resenas">Reseñas</a></li>
+            <li><a href="#parental">Control Parental</a></li>
+            <li><a href="#contact">Contacto</a></li>
+          </ul>
+          <i class="mobile-nav-toggle bi bi-list" onclick="toggleMenu()"></i>
+        </div>
+      </nav>
     </div>
   </header>
 
   <main class="main">
 
- <!-- Hero Section -->
-<section id="hero" class="hero section dark-background">
-
+    <section id="hero" class="hero section dark-background">
   <div class="container">
-    <div class="row gy-4">
-      
-      <!-- Texto y botones -->
-      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-        <h1>Internet por fibra óptica Sapucai y Valenzuela.</h1>
-        <p>Conectamos más que dispositivos, conectamos personas, ideas y sueños.</p>
-        <p>¡BIENVENIDOS A SPYNET!</p>
-        <div class="d-flex">
+    <div class="row gy-4 align-items-center">
+
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-right">
+        <div class="hero-sub">INTERNET CONFIABLE PARA TU HOGAR Y TU EMPRESA</div>
+
+        <h1>Internet por fibra óptica en Sapucai y Valenzuela</h1>
+
+        <p class="hero-text">
+          Conectamos tu hogar y empresa con internet rápido, estable y atención real.
+        </p>
+
+        <div class="d-flex hero-actions">
           <a href="#about" class="btn-get-started">Conoce más sobre SPYnet</a>
         </div>
       </div>
 
-      <!-- Carousel de imágenes -->
-      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="assets/img/IMG_20241119_113743.jpg" class="d-block w-100 img-fluid" alt="Imagen 1">
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img/sapucai.jpg" class="d-block w-100 img-fluid" alt="Imagen 2">
-            </div>
-            <div class="carousel-item">
-              <img src="assets/img/IMG-20250717-WA0054.jpg" class="d-block w-100 img-fluid" alt="Imagen 3">
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="150">
+        <div class="hero-image-box">
+          <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3200">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="assets/img/IMG_20241119_113743.jpg" class="d-block w-100 img-fluid" alt="Imagen 1">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/sapucai.jpg" class="d-block w-100 img-fluid" alt="Imagen 2">
+              </div>
+              <div class="carousel-item">
+                <img src="assets/img/IMG-20250717-WA0054.jpg" class="d-block w-100 img-fluid" alt="Imagen 3">
+              </div>
             </div>
 
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
           </div>
         </div>
       </div>
 
     </div>
   </div>
+</section>
 
-</section><!-- /Hero Section -->
-
-    <!-- Clients Section -->
     <section id="clients" class="clients section light-background">
-
       <div class="container" data-aos="zoom-in">
-
         <div class="swiper init-swiper">
           <script type="application/json" class="swiper-config">
             {
@@ -211,727 +961,494 @@
               }
             }
           </script>
-    </section><!-- /Clients Section -->
+        </div>
+      </div>
+    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section">  
-
-      <!-- Section Title -->
+    <section id="about" class="about section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Sobre SPYnet</h2>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
-
-        <div class="row gy-4">
-
+        <div class="row gy-4 align-items-start">
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>
               En SPYnet, nos especializamos en llevar la mejor experiencia de Internet a hogares,
-              negocios y comunidades. Somos más que un proveedor de servicios de Internet, 
-              somos un puente hacia el mundo digital, 
+              negocios y comunidades. Somos más que un proveedor de servicios de Internet,
+              somos un puente hacia el mundo digital,
               comprometidos con la calidad, la velocidad y la accesibilidad.
             </p>
+
             <ul>
               <li><i class="bi bi-check2-circle"></i> <span>Velocidad y estabilidad: Navega, trabaja y disfruta de tus contenidos favoritos.</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Soporte al cliente de excelencia: Nuestro equipo está disponible para ayudarte cuando lo necesites, con atención personalizada y soluciones inmediatas.</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Planes flexibles: Ofrecemos opciones que se adaptan a tus necesidades y presupuesto, desde paquetes básicos hasta servicios avanzados para negocios.</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Innovación constante: En SPYnet, nos mantenemos a la vanguardia tecnológica para ofrecerte siempre lo mejor.</span></li>
             </ul>
-            <style>
-              .card-info {
-                background-color: #001f3f; /* Azul profesional */
-                color: white;
-                padding: 20px;
-                border-radius: 15px;
-                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-                height: 100%;
-                transition: transform 0.3s ease;
-                text-align: justify;
-              }
-            
-              .card-info:hover {
-                transform: translateY(-5px);
-              }
-            
-              .card-info h4 {
-               font-weight: bold;
-               text-align: center;
-               margin-bottom: 15px;
-               color: white; /* Color blanco para los títulos */
-              }
-            </style>
-            
-            <div class="row g-4">
-              <!-- Misión -->
+
+            <div class="row g-4 mt-1">
               <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-item position-relative card-info">
                   <h4>Misión</h4>
-                  <p>Brindar servicios de internet con excelencia técnica, atención personalizada y 
-                  disponibilidad constante, conectando hogares y empresas de forma confiable. Nos 
-                  comprometemos a escuchar, asistir y evolucionar junto a nuestros clientes.</p>
+                  <p>Brindar servicios de internet con excelencia técnica, atención personalizada y disponibilidad constante, conectando hogares y empresas de forma confiable. Nos comprometemos a escuchar, asistir y evolucionar junto a nuestros clientes.</p>
                 </div>
               </div>
-            
-              <!-- Visión -->
+
               <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-item position-relative card-info">
                   <h4>Visión</h4>
-                  <p>Nos estamos proyectando a ser la empresa de internet más ágil e innovadora del mercado, redefiniendo la forma en que las personas se conectan y son asistidas. 
-                  Combinamos tecnología inteligente con atención humana todos los días, para ofrecer 
-                  una experiencia digital cercana, confiable y personalizada. Construimos un equipo 
-                  comprometido, con pasión por la mejora continua, que transforma cada interacción en 
-                  una oportunidad para evolucionar y conectar mejor</p>
+                  <p>Nos estamos proyectando a ser la empresa de internet más ágil e innovadora del mercado, redefiniendo la forma en que las personas se conectan y son asistidas. Combinamos tecnología inteligente con atención humana todos los días, para ofrecer una experiencia digital cercana, confiable y personalizada. Construimos un equipo comprometido, con pasión por la mejora continua, que transforma cada interacción en una oportunidad para evolucionar y conectar mejor.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Descubre cómo SPYnet puede transformar tu experiencia de conectividad. Únete a nuestra red y sé parte del futuro digital. </p>
+            <p>Descubre cómo SPYnet puede transformar tu experiencia de conectividad. Únete a nuestra red y sé parte del futuro digital.</p>
+            <div class="text-center">
             <img src="assets/img/IMG-20250717-WA0051.jpg" alt="Imagen descriptiva" class="imagen-centrada">
-
-            <div class="col-12 content" data-aos="fade-up" data-aos-delay="100">
-            <strong>Valores Centrales</strong>
-            <ul>
-              <li><i class="bi bi-check2-circle"></i> <span> <strong>Compromiso diario:</strong> Estamos siempre presentes, incluso los domingos.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span><strong>Atención humana:</strong> Detrás de cada solución técnica, hay una persona comprometida con ayudarte.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span><strong>Crecimiento constante:</strong> Aprendemos, nos capacitamos y mejoramos cada día.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span><strong>Lealtad interna:</strong>Construimos vínculos sólidos entre nuestro equipo y con nuestros clientes.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span><strong>Transparencia:</strong>Comunicamos con claridad y actuamos con integridad</span></li>
-            </ul>
             </div>
 
+            <div class="content mt-3">
+              <strong style="color:#243f70; font-size:1.15rem;">Valores Centrales</strong>
+              <ul class="mt-3">
+                <li><i class="bi bi-check2-circle"></i> <span><strong>Compromiso diario:</strong> Estamos siempre presentes, incluso los domingos.</span></li>
+                <li><i class="bi bi-check2-circle"></i> <span><strong>Atención humana:</strong> Detrás de cada solución técnica, hay una persona comprometida con ayudarte.</span></li>
+                <li><i class="bi bi-check2-circle"></i> <span><strong>Crecimiento constante:</strong> Aprendemos, nos capacitamos y mejoramos cada día.</span></li>
+                <li><i class="bi bi-check2-circle"></i> <span><strong>Lealtad interna:</strong> Construimos vínculos sólidos entre nuestro equipo y con nuestros clientes.</span></li>
+                <li><i class="bi bi-check2-circle"></i> <span><strong>Transparencia:</strong> Comunicamos con claridad y actuamos con integridad.</span></li>
+              </ul>
+            </div>
 
-            <div style="text-align: right;">
-              <a href="#services" class="read-more btn-espaciado">
-                <span>Ver más</span><i class="bi bi-arrow-right"></i>
+            <div style="text-align: right;" class="mt-3">
+              <a href="#services" class="read-more btn-espaciado btn-get-started">
+                <span>Ver más</span> <i class="bi bi-arrow-right"></i>
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- Services Section -->
     <section id="services" class="services section light-background">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Servicios</h2>
         <p style="text-align: center;">¿Cómo saber elegir el plan adecuado para ti?</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
-
         <div class="row gy-4">
-
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-wifi icon"></i></div>
-              <h4><a href="" class="stretched-link">70 Mbps</a></h4>
-              <p>Este plan ofrece una velocidad de descarga de hasta 70 Mbps y es ideal 
-              para hogares pequeños o para personas que realizan actividades en línea básicas.
-              Cuenta con una conexión simétrica.</p>
+              <h4><a href="#" class="stretched-link">70 Mbps</a></h4>
+              <p>Este plan ofrece una velocidad de descarga de hasta 70 Mbps y es ideal para hogares pequeños o para personas que realizan actividades en línea básicas. Cuenta con una conexión simétrica.</p>
               <p><strong>130.000 gs.</strong></p>
-
-          </div><!-- End Service Item -->
-        </div>
+            </div>
+          </div>
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-wifi icon"></i></div>
-              <h4><a href="" class="stretched-link">130 Mbps</a></h4>
-              <p>Este plan proporciona una velocidad de descarga de hasta 130 Mbps y es una opción 
-                equilibrada para familias medianas con un uso moderado a intensivo de internet.
-                Streaming en calidad HD y 4K en varios dispositivos simultáneamente.
-                Teletrabajo con videollamadas frecuentes y uso de herramientas en línea.
-                Juegos en línea.
-                Descargas de archivos de tamaño medio (películas, juegos).</p>
-                <p><strong>160.000 gs.</strong></p>
+              <h4><a href="#" class="stretched-link">130 Mbps</a></h4>
+              <p>Este plan proporciona una velocidad de descarga de hasta 130 Mbps y es una opción equilibrada para familias medianas con un uso moderado a intensivo de internet. Streaming en calidad HD y 4K en varios dispositivos simultáneamente. Teletrabajo con videollamadas frecuentes y uso de herramientas en línea. Juegos en línea. Descargas de archivos de tamaño medio.</p>
+              <p><strong>160.000 gs.</strong></p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-wifi icon"></i></div>
-              <h4><a href="" class="stretched-link">180 Mbps</a></h4>
-              <p>Este plan ofrece una velocidad de hasta 180 Mbps, perfecta para hogares 
-                grandes o familias numerosas con alta demanda de internet.
-                Streaming en calidad 4K/UHD en varios dispositivos al mismo tiempo.
-                Descargas rápidas de archivos grandes, como juegos o películas en alta calidad.
-                Teletrabajo intensivo con múltiples videollamadas y transferencias de datos grandes.
-                Juegos en línea con baja latencia, incluso para varios jugadores simultáneos.</p>
-                <p><strong>200.000 gs.</strong></p>
+              <h4><a href="#" class="stretched-link">180 Mbps</a></h4>
+              <p>Este plan ofrece una velocidad de hasta 180 Mbps, perfecta para hogares grandes o familias numerosas con alta demanda de internet. Streaming en calidad 4K/UHD, descargas rápidas de archivos grandes, teletrabajo intensivo y juegos en línea con baja latencia.</p>
+              <p><strong>200.000 gs.</strong></p>
             </div>
           </div>
-            
-          
+
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
-  <div class="service-item position-relative">  
-    <img src="assets/img/FB_IMG_1733609521821.jpg" alt="Imagen descriptiva" style="width: 100%; margin-top: 15px;">  
-    
-    <!-- Contenedor centrado -->
-    <div class="text-center w-100" data-aos="fade-up" data-aos-delay="200" style="margin-top: 15px;">
-      <p class="pb-3"><strong>¡Es sin contrato!</strong></p>
-      <a href="https://wa.me/595974500519" class="btn btn-whatsapp">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; margin-right: 10px;">
-        Adquirir plan
-      </a>
-    </div>
-    
-  </div>
-</div>
-        
-          <!-- Video centrado y aparte -->
-          <div class="d-flex justify-content-center mt-4" data-aos="fade-up" data-aos-delay="400">
-         <video controls style="width: 100%; max-width: 400px; border-radius: 8px; 
-         box-shadow: 0 4px 20px rgba(0,0,0,0.2); border: 4px solid #0d6efd;">
-        <source src="assets/video/VID-20250718-WA0011.mp4" type="video/mp4">
-        Tu navegador no soporta el video HTML5.
-        </video>
-       </div>
-      </div>
-     </div>
-    </div>
-    </div>
+            <div class="service-item position-relative text-center">
+              <img src="assets/img/1.png" alt="Imagen descriptiva" class="img-fluid" style="border-radius:18px; margin-bottom:18px;">
+              <p class="pb-2"><strong>¡Es sin contrato!</strong></p>
+              <a href="https://wa.me/595974500519" class="btn btn-whatsapp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 28px;">
+                Adquirir plan
+              </a>
+            </div>
+          </div>
 
- </div>
-<!-- Mapa de Cobertura -->
-<div class="row gy-4 mt-5">
+          </div>
+        </div>
 
-  <!-- Mapa de Valenzuela -->
-  <div class="col-md-6 d-flex justify-content-center">
-    <div style="max-width: 500px; width: 100%;">
-      <h4 class="text-center">Cobertura en Valenzuela</h4>
-      <div class="map-responsive" style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-        <iframe 
-          src="https://www.google.com/maps/d/u/1/embed?mid=1P__hCEGi3G7TbXgWcR6jlBwTHrBz7Ow&ehbc=2E312F&noprof=1"
-          width="100%" height="300"
-          style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
-      <p class="text-center mt-2">Zonas: San Francisco, Centro, Curupayty, Piraretã, Minas Cué, Compañía Mariscal López.</p>
-      <div class="text-center">
-        <a href="https://www.google.com/maps/d/u/1/edit?mid=1P__hCEGi3G7TbXgWcR6jlBwTHrBz7Ow&usp=sharing" target="_blank" class="btn btn-outline-primary btn-sm mt-2">Ver en Google Maps</a>
-      </div>
-    </div>
-  </div>
+        <div class="row gy-4 mt-5">
+          <div class="col-md-6 d-flex justify-content-center">
+            <div class="map-card w-100" style="max-width: 560px;">
+              <h4 class="text-center">Cobertura en Valenzuela</h4>
+              <div class="map-responsive">
+                <iframe
+                  src="https://www.google.com/maps/d/u/1/embed?mid=1P__hCEGi3G7TbXgWcR6jlBwTHrBz7Ow&ehbc=2E312F&noprof=1"
+                  width="100%" height="300"
+                  style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+              </div>
+              <p class="text-center mt-3">Zonas: San Francisco, Centro, Curupayty, Piraretã, Minas Cué, Compañía Mariscal López.</p>
+              <div class="text-center">
+                <a href="https://www.google.com/maps/d/u/1/edit?mid=1P__hCEGi3G7TbXgWcR6jlBwTHrBz7Ow&usp=sharing" target="_blank" class="btn btn-outline-primary btn-sm mt-2">Ver en Google Maps</a>
+              </div>
+            </div>
+          </div>
 
-  <!-- Mapa de Sapucai -->
-  <div class="col-md-6 d-flex justify-content-center">
-    <div style="max-width: 500px; width: 100%;">
-      <h4 class="text-center">Cobertura en Sapucai</h4>
-      <div class="map-responsive" style="border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-        <iframe 
-          src="https://www.google.com/maps/d/u/1/embed?mid=1dvUhn4zdSOIY-dfsnd7sqvrNSUbUtQA&ehbc=2E312F&noprof=1"
-          width="100%" height="300"
-          style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+          <div class="col-md-6 d-flex justify-content-center">
+            <div class="map-card w-100" style="max-width: 560px;">
+              <h4 class="text-center">Cobertura en Sapucai</h4>
+              <div class="map-responsive">
+                <iframe
+                  src="https://www.google.com/maps/d/u/1/embed?mid=1dvUhn4zdSOIY-dfsnd7sqvrNSUbUtQA&ehbc=2E312F&noprof=1"
+                  width="100%" height="300"
+                  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+              <p class="text-center mt-3">Zonas: Cerro Rokẽ, Arroyo Porã, Sapucai Centro.</p>
+              <div class="text-center">
+                <a href="https://www.google.com/maps/d/u/1/edit?mid=1dvUhn4zdSOIY-dfsnd7sqvrNSUbUtQA&usp=sharing" target="_blank" class="btn btn-outline-success btn-sm mt-2">Ver en Google Maps</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="text-center mt-2">Zonas: Cerro Rokẽ, Arroyo Porã, Sapucai Centro.</p>
-      <div class="text-center">
-        <a href="https://www.google.com/maps/d/u/1/edit?mid=1dvUhn4zdSOIY-dfsnd7sqvrNSUbUtQA&usp=sharing" target="_blank" class="btn btn-outline-success btn-sm mt-2">Ver en Google Maps</a>
-      </div>
-    </div>
-  </div>
+    </section>
 
-</div>
-
-<!-- Services Section -->
 <section id="planes" class="services section light-background">
-
-  <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
     <h2>PLANES CORPORATIVOS</h2>
-    <strong style="text-align: center;">Soluciones  Tecnologicas Integrales para Empresas y Hogares.</strong>
-    <p style="text-align: justify;">Contamos con planes corporativos diseñados para crecer contigo. Desde oficinas pequeñas hasta redes empresariales complejas, Spy Net te conecta con velocidad simétrica, asistencia real y soluciones que se adaptan a tu negocio.</p>
-  </div><!-- End Section Title -->
+    <strong>Soluciones Tecnológicas Integrales para Empresas y Hogares.</strong>
+    <p style="text-align: justify;">
+      Contamos con planes corporativos diseñados para crecer contigo. Desde oficinas pequeñas hasta redes empresariales complejas, Spy Net te conecta con velocidad simétrica, asistencia real y soluciones que se adaptan a tu negocio.
+    </p>
+  </div>
 
   <div class="container">
+    <div class="swiper corporativo-swiper">
+      <div class="swiper-wrapper">
 
-    <div class="row gy-4">
-
-      <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div style="font-size: 2rem; color: #0d6efd;">
-         <i class="bi bi-camera-video"></i>
-         <i class="bi bi-tools"></i>
-      </div>
-          <h4>Instalación de Cámaras de Seguridad</h4>
-          <p>
-            Protegé lo que más importa con tecnología de vigilancia confiable.
-            Instalamos sistemas de cámaras HD y IP con monitoreo local y remoto. 
-            Adaptamos cada solución a tus necesidades: hogares, empresas, depósitos o comercios.
-            Visión nocturna, colorida  grabación continua y acceso desde tu celular.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-           <i class="bi bi-exclamation-triangle" style="font-size: 2rem; color: red;"></i>
+        <div class="swiper-slide">
+          <div class="corporativo-card">
+            <div class="corporativo-icon"><i class="bi bi-camera-video"></i></div>
+            <h4>Instalación de Cámaras</h4>
+            <p>Protegé lo que más importa con monitoreo local y remoto, visión nocturna y acceso desde tu celular.</p>
           </div>
-          <h4>Sistemas de Alarma Inteligente</h4>
-          <p>
-            Seguridad activa las 24 horas, todos los días.
-            Ofrecemos alarmas con sensores de movimiento, apertura, vibración y control remoto.
-            Integración con notificaciones vía app y posibilidad de conexión con centros de monitoreo.
-            Detección inmediata y respuesta rápida.
-          </p>
         </div>
-      </div>
 
-      <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-          <i class="bi bi-fire" style="font-size: 2rem; color: red;"></i>
+        <div class="swiper-slide">
+          <div class="corporativo-card">
+            <div class="corporativo-icon"><i class="bi bi-exclamation-triangle"></i></div>
+            <h4>Alarmas Inteligentes</h4>
+            <p>Sensores de movimiento, apertura y vibración con notificaciones y control remoto.</p>
           </div>
-          <h4>Prevención de Incendios</h4>
-          <p>
-            Protección que salva vidas y patrimonios.
-            Instalamos sistemas de detección de humo, calor y gases peligrosos. 
-            Asesoramos sobre rutas de evacuación, paneles de alerta y sistemas de extinción automática. 
-            Cumplimos con normativas locales y exigencias empresariales.
-          </p>
         </div>
-      </div>
 
-      <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-          <i class="bi bi-diagram-3"></i>
+        <div class="swiper-slide">
+          <div class="corporativo-card">
+            <div class="corporativo-icon"><i class="bi bi-fire"></i></div>
+            <h4>Prevención de Incendios</h4>
+            <p>Detección de humo, calor y gases peligrosos con sistemas de alerta y protección.</p>
           </div>
-          <h4>Red Estructurada</h4>
-          <p>
-            Organización, velocidad y eficiencia en tu red interna.
-            Diseñamos e instalamos redes físicas con cableado estructurado, racks, patch panels y
-            puntos de acceso distribuidos. Soluciones para oficinas, edificios o espacios industriales. 
-            Todo pensado para un flujo de datos seguro y estable.
-          </p>
         </div>
-      </div>
 
-
-      <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-          <i class="bi bi-globe2"></i>
+        <div class="swiper-slide">
+          <div class="corporativo-card">
+            <div class="corporativo-icon"><i class="bi bi-diagram-3"></i></div>
+            <h4>Red Estructurada</h4>
+            <p>Diseño e instalación de redes con cableado organizado, racks y puntos de acceso.</p>
           </div>
-          <h4>Trabajos con Fibra Óptica</h4>
-          <p>
-            Conexiones que impulsan el futuro.
-            Realizamos tendido, fusión y certificación de enlaces de fibra óptica para empresas, instituciones y 
-            urbanizaciones. Alta capacidad, baja latencia y máxima precisión en cada conexión. Ideal para proveedores, 
-            cámaras de vigilancia o enlaces punto a punto.
-          </p>
         </div>
-      </div>
 
-
-      <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-          <i class="fas fa-satellite-dish"></i>
+        <div class="swiper-slide">
+          <div class="corporativo-card">
+            <div class="corporativo-icon"><i class="bi bi-globe2"></i></div>
+            <h4>Fibra Óptica</h4>
+            <p>Alta velocidad, baja latencia y conexiones estables para empresas y proyectos.</p>
           </div>
-          <h4>Instalación de Starlink en Paraguay</h4>
-          <p>
-            En Spy Net, llevamos el futuro a cada rincón del país.
-            Somos pioneros en la instalación de Starlink, el innovador servicio de 
-            internet satelital de alta velocidad. Conectamos zonas rurales, empresas remotas 
-            y proyectos exigentes que necesitan conectividad sin límites.
-          </p>
-          <ul>
-              <li><i class="bi bi-check2-circle"></i> <span style="text-align: justify;">Configuración profesional del kit Starlink.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span style="text-align: justify;">Asistencia personalizada en cada etapa.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span style="text-align: justify;">Cobertura nacional para clientes empresariales y particulares.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span style="text-align: justify;">Integración con redes locales y soluciones híbridas.</span></li>
-            </ul>
-            <span>Conectá tu mundo donde antes no era posible.</span>
         </div>
+
+        <div class="swiper-slide">
+          <div class="corporativo-card">
+            <div class="corporativo-icon"><i class="fas fa-satellite-dish"></i></div>
+            <h4>Starlink Paraguay</h4>
+            <p>Internet satelital para zonas rurales y lugares sin cobertura tradicional.</p>
+          </div>
+        </div>
+
       </div>
 
-  <div class="col-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="150">
-  <div class="service-item position-relative text-center" style="width: 100%;">
-    <h4 style="margin-bottom: 10px;">Mirá nuestras soluciones en acción</h4>
-    
-    <video controls width="100%" style="max-width: 600px; border-radius: 15px; 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      border: 4px solid #0d6efd;">
-      <source src="assets/video/VID-20241113-WA0098.mp4" type="video/mp4">
-      Tu navegador no soporta el video HTML5.
-    </video>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+          <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="200">
+  <h4 style="margin-bottom: 20px;">Mirá nuestras soluciones en acción</h4>
 
-    <p style="margin-top: 10px; font-style: italic; color: #555;">Tecnología real, resultados visibles.</p>
+  <div class="d-flex justify-content-center gap-4 flex-wrap">
+
+    <!-- Video 1 -->
+    <div class="video-box">
+      <video controls>
+        <source src="assets/video/VID-20250718-WA0011.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Video 2 -->
+    <div class="video-box">
+      <video controls>
+        <source src="assets/video/VID-20241113-WA0098.mp4" type="video/mp4">
+      </video>
+    </div>
+
   </div>
 </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-
-    <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Galería</h2>
+    <p><strong>Telecomunicaciones</strong></p>
+  </div>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Galería</h2>
-        <p><strong>Telecomunicaciones</strong></p>
-      </div><!-- End Section Title -->
+  <div class="container">
+    <ul class="portfolio-filters text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+      <li class="filter-btn active" data-filter="all">Todos</li>
+      <li class="filter-btn" data-filter="equipo"><i class="bi bi-wifi"></i> Equipo</li>
+      <li class="filter-btn" data-filter="instalaciones"><i class="bi bi-wifi"></i> Instalaciones</li>
+      <li class="filter-btn" data-filter="despliegue"><i class="bi bi-wifi"></i> Despliegue</li>
+    </ul>
 
-      <div class="container">
+    <div class="swiper galeria-swiper" data-aos="fade-up" data-aos-delay="200">
+      <div class="swiper-wrapper" id="galeriaWrapper">
 
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+        <div class="swiper-slide" data-category="instalaciones">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20250327-WA0028.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">Infraestructura</li>
-            <li data-filter=".filter-app">
-              <i class="bi bi-wifi">Equipo</i>
-              </li>
-              <li data-filter=".filter-product">
-              <i class="bi bi-wifi">Instalaciones</i>
-              </li>
-              <li data-filter=".filter-branding">
-              <i class="bi bi-wifi">Despliegue</i>
-              </li>
-          </ul><!-- End Portfolio Filters -->
+        <div class="swiper-slide" data-category="instalaciones">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241204-WA0020.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="swiper-slide" data-category="equipo">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241212-WA0017.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/IMG-20250327-WA0028.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="equipo">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241212-WA0070.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/IMG-20241204-WA0020.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="instalaciones">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241115-WA0053.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/IMG-20241212-WA0017.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="instalaciones">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241212-WA0052.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/IMG-20241212-WA0070.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="equipo">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241105-WA0008.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/IMG-20241115-WA0053.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="equipo">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241107-WA0123.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/IMG-20241212-WA0052.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="instalaciones">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241203-WA0030.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/IMG-20241105-WA0008.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="despliegue">
+          <div class="galeria-card">
+            <img src="assets/img/IMG_20241217_083100.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/IMG-20241107-WA0123.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="despliegue">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241217-WA0018.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-              <img src="assets/img/IMG-20241203-WA0030.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="despliegue">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241217-WA0066.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
+        <div class="swiper-slide" data-category="despliegue">
+          <div class="galeria-card">
+            <img src="assets/img/Screenshot_20241210_193800_WhatsApp.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/IMG_20241217_083100.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
+        <div class="swiper-slide" data-category="despliegue">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241204-WA0023.jpg" class="img-fluid" alt="">
+          </div>
+        </div>
 
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/IMG-20241217-WA0018.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/IMG-20241217-WA0066.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/Screenshot_20241210_193800_WhatsApp.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-              <img src="assets/img/IMG-20241204-WA0023.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-              <img src="assets/img/IMG-20241114-WA0007.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-          </div><!-- End Portfolio Container -->
-
-
-
-          <section id="consorcio" class="portfolio section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-            <h2>Consorcio SPY</h2>
-            <p><strong>Soluciones tecnológicas</strong></p>
-           </div><!-- End Section Title -->
-      
-            <div class="container">
-      
-              <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-      
-                 <!--<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100"> -->
-                   <!--<li data-filter="*" class="filter-active">Infraestructura</li> -->
-                 <!--  <li data-filter=".filter-app">-->
-                  <!--   <i class="bi bi-wifi">Equipo</i>-->
-                   <!--  </li>-->
-                   <!--  <li data-filter=".filter-product">-->
-                   <!--  <i class="bi bi-wifi">Instalaciones</i>-->
-                   <!--  </li>-->
-                   <!--  <li data-filter=".filter-branding">-->
-                   <!--  <i class="bi bi-wifi">Despliegue</i>-->
-                   <!--  </li>-->
-              <!--   </ul>--><!-- End Portfolio Filters -->
-      
-                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/foto1.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/foto2.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/foto3.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/foto4.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/foto5.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/foto6.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/foto7.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/foto8.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-                </div><!-- End Portfolio Container -->
-
-
-
-
+        <div class="swiper-slide" data-category="equipo">
+          <div class="galeria-card">
+            <img src="assets/img/IMG-20241114-WA0007.jpg" class="img-fluid" alt="">
+          </div>
         </div>
 
       </div>
 
-    </section><!-- /Portfolio Section -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
 
+   
+<section id="consorcio" class="portfolio section">
+  <div class="container section-title text-center">
+    <h2>Consorcio SPY</h2>
+    <p><strong>Soluciones tecnológicas</strong></p>
+  </div>
 
+  <div class="container">
+    <div class="scroll-wrapper">
+      <div class="scroll-cards">
+        <div class="card"><img src="assets/img/foto1.jpg" class="card-img-top" alt=""></div>
+        <div class="card"><img src="assets/img/foto2.jpg" class="card-img-top" alt=""></div>
+        <div class="card"><img src="assets/img/foto3.jpg" class="card-img-top" alt=""></div>
+        <div class="card"><img src="assets/img/foto4.jpg" class="card-img-top" alt=""></div>
+        <div class="card"><img src="assets/img/foto5.jpg" class="card-img-top" alt=""></div>
+        <div class="card"><img src="assets/img/foto6.jpg" class="card-img-top" alt=""></div>
+        <div class="card"><img src="assets/img/foto7.jpg" class="card-img-top" alt=""></div>
+        <div class="card"><img src="assets/img/foto8.jpg" class="card-img-top" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
     <section id="kits" class="portfolio section">
+  <div class="container section-title text-center">
+    <h2>Kits de Cámaras</h2>
+    <p><strong>SÚPER PROMO</strong></p>
+  </div>
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-            <h2>Kits de Cámaras</h2>
-            <p><strong>SÚPER PROMO</strong></p>
-           </div><!-- End Section Title -->
-      
-            <div class="container">
-      
-              <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-      
-                 <!--<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100"> -->
-                   <!--<li data-filter="*" class="filter-active">Infraestructura</li> -->
-                 <!--  <li data-filter=".filter-app">-->
-                  <!--   <i class="bi bi-wifi">Equipo</i>-->
-                   <!--  </li>-->
-                   <!--  <li data-filter=".filter-product">-->
-                   <!--  <i class="bi bi-wifi">Instalaciones</i>-->
-                   <!--  </li>-->
-                   <!--  <li data-filter=".filter-branding">-->
-                   <!--  <i class="bi bi-wifi">Despliegue</i>-->
-                   <!--  </li>-->
-              <!--   </ul>--><!-- End Portfolio Filters -->
-      
-                <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/kit1.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/kit2.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/kit3.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/kit4.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/kit5.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                    <img src="assets/img/kit6.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
-      
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                    <img src="assets/img/kit7.jpg" class="img-fluid" alt="">
-                  </div><!-- End Portfolio Item -->
+  <div class="container">
+    <div class="scroll-wrapper">
+      <div class="scroll-cards kits-scroll">
 
-                  <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                <div class="text-center">
-              <h4>Comunícate con nosotros:</h4>
-              <a href="https://wa.me/595974500519" class="btn btn-whatsapp mt-2">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; margin-right: 10px;">
-              Adquirir Kits Aquí
-             </a>
-            </div>
-          </div><!-- End Portfolio Item -->
-      
-                </div><!-- End Portfolio Container -->
+        <div class="card"><img src="assets/img/kit1.jpg"></div>
+        <div class="card"><img src="assets/img/kit2.jpg"></div>
+        <div class="card"><img src="assets/img/kit3.jpg"></div>
+        <div class="card"><img src="assets/img/kit4.jpg"></div>
+        <div class="card"><img src="assets/img/kit5.jpg"></div>
+        <div class="card"><img src="assets/img/kit6.jpg"></div>
+        <div class="card"><img src="assets/img/kit7.jpg"></div>
 
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-
-    <section id="social" class="portfolio section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-            <h2>COMPROMISO SOCIAL</h2>
-            <p><strong>Conectando a la comunidad.</strong></p>
-           </div><!-- End Section Title -->
-      
-            <div class="container">
-      
-              <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-      
-                 <!--<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100"> -->
-                   <!--<li data-filter="*" class="filter-active">Infraestructura</li> -->
-                 <!--  <li data-filter=".filter-app">-->
-                  <!--   <i class="bi bi-wifi">Equipo</i>-->
-                   <!--  </li>-->
-                   <!--  <li data-filter=".filter-product">-->
-                   <!--  <i class="bi bi-wifi">Instalaciones</i>-->
-                   <!--  </li>-->
-                   <!--  <li data-filter=".filter-branding">-->
-                   <!--  <i class="bi bi-wifi">Despliegue</i>-->
-                   <!--  </li>-->
-              <!--   </ul>--><!-- End Portfolio Filters -->
-      
-  <div class="col-lg-12 col-md-12 portfolio-item isotope-item filter-app">
-  <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
-
-   <style>
-  .imagen-responsive {
-    width: 40%;      /* Ocupa 40% ancho en desktop */
-    max-width: 100%; /* No se pasa del 100% del contenedor */
-    height: auto;
-    border-radius: 10px;
-    display: block;
-    margin: 0 auto;  /* Centrar en celular */
-  }
-
-  @media (max-width: 768px) {
-    .imagen-responsive {
-      width: 90%;    /* En celular ocupa casi todo el ancho */
-    }
-  }
-</style>
-
-<img src="assets/img/fot4.jpg" alt="Educación Digital" class="imagen-responsive" />
-
-    <!-- Texto -->
-    <div style="flex: 2; min-width: 300px;">
-      <h4 style="text-align: center;">Educación Digital Spy Net</h4>
-      <p><strong>Conectividad gratuita para el conocimiento del mañana.</strong> En Spy Net creemos que la educación es el motor del desarrollo. Por eso, implementamos el programa Educación Digital, a través del cual instalamos servicios de internet de forma gratuita en instituciones públicas educativas, sin costo mensual y con soporte técnico real.</p>
-      <p>Este compromiso permite que escuelas, colegios y centros educativos accedan a una conexión estable y segura, promoviendo la inclusión digital, el acceso a contenido educativo y el desarrollo de habilidades del siglo XXI.</p>
-      <ul>
-      <li><i class="bi bi-check2-circle"></i> <span> Instalación profesional sin costos ocultos.</span></li>
-      <li><i class="bi bi-check2-circle"></i> <span>Soporte técnico todos los días.</span></li>
-      <li><i class="bi bi-check2-circle"></i> <span>Acceso igualitario a la tecnología.</span></li>
-      <li><i class="bi bi-check2-circle"></i> <span>Alianzas con instituciones comprometidas con el futuro.</span></li>
-      </ul>
-      <p>Conectamos a quienes enseñan y a quienes aprenden, porque el conocimiento también necesita una buena señal.</p>
-    </div>
-
-
-   <div class="col-lg-12 col-md-12 portfolio-item isotope-item filter-app">
-  <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
-
-    <!-- Contenedor para las dos imágenes una al lado de la otra -->
-   <!-- <div style="display: flex; gap: 10px; flex: 1; max-width: 40%;">-->
-      <!--<img src="assets/img/fot4.jpg" alt="Educación Digital1" style="width: 100%; height: auto; border-radius: 10px;">-->
-   <!-- </div>-->
-
-    <!-- Texto -->
-    <div style="flex: 2; min-width: 300px;">
-    <h4 style="text-align: center;">Conectividad Solidaria: Apoyo a Centros Comunitarios de Salud (USF)</h4>
-      <p><strong>Tecnología al servicio del cuidado comunitario.</strong> En Spy Net, creemos que el acceso a la salud merece respaldo tecnológico. Por eso extendemos nuestro compromiso social brindando servicios gratuitos de internet a los Centros Comunitarios de Salud (USF), acompañando la labor de profesionales que protegen vidas todos los días.</p>
-      <p>Desde centros urbanos hasta zonas rurales, nos aseguramos de que cada USF tenga acceso estable, asistencia técnica y conexión segura para fortalecer sus tareas médicas, administrativas y educativas.</p>
-      <ul>
-      <li><i class="bi bi-check2-circle"></i> <span> Instalación sin costo en unidades públicas.</span></li>
-      <li><i class="bi bi-check2-circle"></i> <span>Conectividad estable para gestión, comunicación y capacitación.</span></li>
-      <li><i class="bi bi-check2-circle"></i> <span>Asistencia técnica todos los días.</span></li>
-      <li><i class="bi bi-check2-circle"></i> <span>Apoyo a instituciones que cuidan a nuestra gente.</span></li>
-      </ul>
-      <p>Conectamos con responsabilidad, porque la salud también necesita buena señal.</p>
-    </div>
-
+        <!-- Tarjeta WhatsApp -->
+  <div class="card d-flex align-items-center justify-content-center text-center p-3">
+  <div>
+    <h5>Escribínos por WhatsApp aquí con un solo clic:</h5>
+    <a href="https://wa.me/595974500519?text=Hola,%20quiero%20consultar%20sobre%20los%20kits" 
+   class="btn btn-success mt-2">
+  <i class="bi bi-whatsapp"></i>
+</a>
   </div>
 </div>
-      
-      
-                </div><!-- End Portfolio Container -->
-
-        </div>
 
       </div>
+    </div>
+  </div>
+</section>
 
-    </section><!-- /Portfolio Section -->
-
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
+    <section id="social" class="portfolio section">
       <div class="container section-title" data-aos="fade-up">
-        <h2>Equipo SPYnet</h2>
-        <p>En SPYnet, contamos con un equipo de técnicos autorizados que trabajan con dedicación todos 
-          los días para asegurarse de que tu conexión a internet sea rápida, estable 
-          y siempre esté a la altura de tus expectativas.</p>
-      </div><!-- End Section Title -->
+        <h2>COMPROMISO SOCIAL</h2>
+        <p><strong>Conectando a la comunidad.</strong></p>
+      </div>
 
       <div class="container">
+        <div class="spynet-social-block" data-aos="fade-up" data-aos-delay="100">
+          <img src="assets/img/fot4.jpg" alt="Educación Digital">
 
+          <div class="social-text">
+            <h4>Educación Digital Spy Net</h4>
+            <p><strong>Conectividad gratuita para el conocimiento del mañana.</strong> En Spy Net creemos que la educación es el motor del desarrollo. Por eso, implementamos el programa Educación Digital, a través del cual instalamos servicios de internet de forma gratuita en instituciones públicas educativas, sin costo mensual y con soporte técnico real.</p>
+            <p>Este compromiso permite que escuelas, colegios y centros educativos accedan a una conexión estable y segura, promoviendo la inclusión digital, el acceso a contenido educativo y el desarrollo de habilidades del siglo XXI.</p>
+            <ul>
+              <li><i class="bi bi-check2-circle"></i> <span>Instalación profesional sin costos ocultos.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Soporte técnico todos los días.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Acceso igualitario a la tecnología.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Alianzas con instituciones comprometidas con el futuro.</span></li>
+            </ul>
+            <p>Conectamos a quienes enseñan y a quienes aprenden, porque el conocimiento también necesita una buena señal.</p>
+          </div>
+        </div>
+
+        <div class="spynet-note" data-aos="fade-up" data-aos-delay="150">
+          <h4 style="text-align:center; color:#243f70; font-weight:700; margin-bottom:12px;">Conectividad Solidaria: Apoyo a Centros Comunitarios de Salud (USF)</h4>
+          <p><strong>Tecnología al servicio del cuidado comunitario.</strong> En Spy Net, creemos que el acceso a la salud merece respaldo tecnológico. Por eso extendemos nuestro compromiso social brindando servicios gratuitos de internet a los Centros Comunitarios de Salud (USF), acompañando la labor de profesionales que protegen vidas todos los días.</p>
+          <p>Desde centros urbanos hasta zonas rurales, nos aseguramos de que cada USF tenga acceso estable, asistencia técnica y conexión segura para fortalecer sus tareas médicas, administrativas y educativas.</p>
+          <ul>
+            <li><i class="bi bi-check2-circle"></i> <span>Instalación sin costo en unidades públicas.</span></li>
+            <li><i class="bi bi-check2-circle"></i> <span>Conectividad estable para gestión, comunicación y capacitación.</span></li>
+            <li><i class="bi bi-check2-circle"></i> <span>Asistencia técnica todos los días.</span></li>
+            <li><i class="bi bi-check2-circle"></i> <span>Apoyo a instituciones que cuidan a nuestra gente.</span></li>
+          </ul>
+          <p>Conectamos con responsabilidad, porque la salud también necesita buena señal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Equipo SPYnet</h2>
+        <p>En SPYnet, contamos con un equipo de técnicos autorizados que trabajan con dedicación todos los días para asegurarse de que tu conexión a internet sea rápida, estable y siempre esté a la altura de tus expectativas.</p>
+      </div>
+
+      <div class="container">
         <div class="row gy-4">
-
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/IMG-20250116-WA0083.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Yessica Araceli López</h4>
                 <span>Ing. Informática</span>
-                <p style="text-align: center;"> Help Desk.</p>
-                <p style="text-align: center;"> Valenzuela.</p>
+                <p>Help Desk. Valenzuela.</p>
                 <div class="social">
                   <a href="https://www.facebook.com/share/15xFvNbDUs/"><i class="bi bi-facebook"></i></a>
                   <a href="https://www.instagram.com/yessica_araceli_10?igsh=YWMxdTl0bHRhejM="><i class="bi bi-instagram"></i></a>
-                  <a href="https://www.linkedin.com/in/yessicaaracelilopez10?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"> <i class="bi bi-linkedin"></i> </a>
+                  <a href="https://www.linkedin.com/in/yessicaaracelilopez10?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member d-flex align-items-start">
@@ -939,31 +1456,28 @@
               <div class="member-info">
                 <h4>Carlos Balbuena</h4>
                 <span>Lic en contabilidad.</span>
-                <p style="text-align: center;"> Help Desk.</p>
-                <p style="text-align: center;"> Sapucai.</p>
+                <p>Help Desk. Sapucai.</p>
                 <div class="social">
                   <a href="https://www.facebook.com/share/15BEtznCtZ/?mibextid=kFxxJD"><i class="bi bi-facebook"></i></a>
                   <a href="https://www.instagram.com/carlos_balbuena29?igsh=dXlxZGE3NmxhcXh4&utm_source=qr"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/IMG-20250203-WA0075.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Cristhian Alcaraz</h4>
-                <p style="text-align: center;"> Jefe técnico Valenzuela.</p>
+                <p>Jefe técnico Valenzuela.</p>
                 <div class="social">
-                  
                   <a href="https://www.facebook.com/share/1CvT5Ks8b1/?mibextid=qi2Omg"><i class="bi bi-facebook"></i></a>
                   <a href="https://www.instagram.com/invites/contact/?igsh=1u7fosedfwqy4&utm_content=kvpod8"><i class="bi bi-instagram"></i></a>
-                  
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
@@ -972,261 +1486,185 @@
                 <h4>Josu Ortiz</h4>
                 <span>Ing. Jefe Técnico Sapucai.</span>
                 <div class="social">
-                  
                   <a href="https://www.facebook.com/share/16LzYAA4xb/"><i class="bi bi-facebook"></i></a>
                   <a href="https://www.instagram.com/josue_ortiz98?igsh=cmloZ2R3a282encw"><i class="bi bi-instagram"></i></a>
-                  
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/fotocomp.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Robert Leckie</h4>
-                <p style="text-align: center;"> Técnico autorizado.</p>
-               <div class="social">
+                <p>Técnico autorizado.</p>
+                <div class="social">
                   <a href="https://www.facebook.com/share/15mPJLfoG6/?mibextid=qi2Omg"><i class="bi bi-facebook"></i></a>
                   <a href="https://www.instagram.com/alexsander_espinola?igsh=YmxjMGJ0d2Zla2d1"><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
             <div class="team-member d-flex align-items-start">
               <div class="pic"><img src="assets/img/team/1752786746085.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Néstor Villalba</h4>
-                <p style="text-align: center;"> Técnico autorizado.</p>
-               <div class="social">
+                <p>Técnico autorizado.</p>
+                <div class="social">
                   <a href="https://www.facebook.com/share/1F9x4YwXSq/?mibextid=qi2Omg"><i class="bi bi-facebook"></i></a>
                   <a href="https://www.instagram.com/nestorvillalbaortiz?igsh=MWpiODhxenZtcjZxNw=="><i class="bi bi-instagram"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/1752786366921.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Víctor Bobadilla</h4>
-                <p style="text-align: center;"> Técnico autorizado.</p>
-               <div class="social">
-                  <a href="https://www.facebook.com/share/17B9LKwQk6/?mibextid=qi2Omg"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/_victordbc05?igsh=MTN5YjBmNjFmZmNlaQ=="><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="parental" class="services section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>CONECTATE SEGURO</h2>
+        <strong>HERRAMIENTAS SEGURAS PARA PROTEGER A TU FAMILIA EN INTERNET.</strong>
+        <p style="text-align: center;">Te recomendamos las siguientes herramientas gratuitas:</p>
+      </div>
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative text-center">
+              <div class="icon"><i class="bi bi-android icon"></i></div>
+              <h4>Android</h4>
+              <h4>Google Family Link</h4>
+              <p>Family Link funciona con dispositivos Android con la versión 7.0 (Nougat) o superior. También puede ser utilizado en algunos dispositivos con Android 5.0 y 6.0.</p>
+              <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.kids.familylink" class="btn btn-primary mt-4" target="_blank">Descargar</a>
+              <a href="https://families.google/intl/es-419_ALL/familylink/" class="btn btn-primary mt-3" target="_blank">Ver tutorial de uso</a>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative text-center">
+              <div class="icon"><i class="bi bi-windows icon" style="font-size: 2rem;"></i></div>
+              <h4>Windows</h4>
+              <h4>Windows Family Options</h4>
+              <p>Desde la versión 10. Aplica solamente para cuentas de Microsoft Edge. Incluye la administración de dispositivos iOS y Android vinculados a tu cuenta de Microsoft.</p>
+              <a href="https://support.microsoft.com/es-es/windows/opciones-de-familia-en-la-aplicaci%C3%B3n-seguridad-de-windows-5e8b9fd8-8372-dba0-eba2-46da8e407026" class="btn btn-primary mt-4" target="_blank">Ver tutorial de uso</a>
+            </div>
+          </div>
 
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative text-center">
+              <div class="icon"><i class="bi bi-apple icon" style="font-size: 2rem;"></i></div>
+              <h4>iOS</h4>
+              <h4>Contenido y privacidad de tiempo de uso</h4>
+              <p>Desde la versión 13.4 y adelante. Equipos: iPhone 6s y posteriores, iPad Air 2 y posteriores, iPad mini 4 y posteriores, y iPod touch de séptima generación.</p>
+              <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">Ver tutorial de uso</a>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative text-center">
+              <div class="icon"><i class="bi bi-laptop icon" style="font-size: 2rem;"></i></div>
+              <h4>macOS</h4>
+              <h4>Contenido y privacidad de tiempo de uso</h4>
+              <p>Desde la versión Catalina 10.15. Las mismas de iOS, dado que las configuraciones están asociadas a la cuenta iCloud y no exclusivamente al dispositivo.</p>
+              <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">Ver tutorial de uso</a>
+            </div>
+          </div>
         </div>
-
       </div>
+    </section>
 
-    </section><!-- /Team Section -->
+    <section id="controles-legales" class="services section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>CONTROLES PARENTALES</h2>
+        <p style="margin-top: 20px; text-align: justify;">
+          La Ley N° 5653 de Protección de niños, niñas y adolescentes contra contenidos nocivos de internet, de fecha 24 de agosto de 2016, establece en su Art. N° 1, que tiene por objeto la protección integral de niños, niñas y adolescentes a los efectos que puedan generar en ellos contenidos nocivos a que se accedan o se encuentren en Internet.
+          Así mismo, el Decreto N° 8098-2022, de fecha 27 de octubre de 2022, reglamenta la Ley N° 5653-2016 de protección de niños, niñas y adolescentes contra contenidos nocivos de internet.
+        </p>
+        <p style="margin-top: 20px;">Otros recursos sobre cómo configurar de manera segura y proteger los dispositivos de sus hijos:</p>
+        <a href="https://www.internetmatters.org/parental-controls/" class="btn btn-primary mt-4" target="_blank">Parental Controls</a>
+      </div>
+    </section>
 
 
-   <!-- Testimonios Section -->
-   <section id="testimonios" class="testimonios section">
 
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>Testimonios</h2>
-    <p style="text-align: justify;">Nuestros clientes comparten sus experiencias sobre cómo SPYnet ha transformado su conexión a internet y su vida digital.</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="testimonio card">
-          <div class="pic">
-            <img src="assets/img/testimonials/FB_IMG_1743789045438.jpg" class="testimonial-img" alt="">
-          </div>
-          <div class="testimonio-info">
-            <h4 style="text-align: center;">María Carolina</h4>
-            <p>Tienen buen servicio, es bueno que tengan hasta los domingos, así no se espera mucho tiempo por la asistencia. </p>
-          </div>
-        </div>
-      </div><!-- End Testimonio -->
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="testimonio card">
-          <div class="pic">
-            <img src="assets/img/testimonials/IMG-20250401-WA0008.jpg" class="testimonial-img" alt="">
-          </div>
-          <div class="testimonio-info">
-            <h4 style="text-align: center;">Nelson Pérez</h4>
-            <p>Vienen rápido cuando se necesita asistencia, recomendado.</p>
-          </div>
-        </div>
-      </div><!-- End Testimonio -->
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="testimonio card">
-          <div class="pic">
-            <img src="assets/img/testimonials/FB_IMG_1743534727811.jpg" class="testimonial-img" alt="">
-          </div>
-          <div class="testimonio-info">
-            <h4 style="text-align: center;">Ruth Arzamendia</h4>
-            <p>Puedo trabajar a gusto con mi wifi, y buena asistencia.</p>
-          </div>
-        </div>
-      </div><!-- End Testimonio -->
-
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="testimonio card">
-          <div class="pic">
-            <img src="assets/img/testimonials/FB_IMG_1739536159660.jpg" class="testimonial-img" alt="">
-          </div>
-          <div class="testimonio-info">
-            <h4 style="text-align: center;">Claudia Guillén</h4>
-            <p>Excelente servicio.</p>
-          </div>
-        </div>
-      </div><!-- End Testimonio -->
-
-    </div>
-
+<section id="resenas" class="section">
+  <div class="container section-title text-center">
+    <h2>Reseñas</h2>
+    <p><strong>¿Qué dicen nuestros clientes?</strong></p>
   </div>
 
-</section><!-- End Testimonios Section -->
+  <div class="container mt-4">
+    <div class="row g-4">
 
-
-<!-- Services Section -->
-<section id="parental" class="services section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>CONECTATE SEGURO</h2>
-    <strong style="text-align: center;">HERRAMIENTAS SEGURAS PARA PROTEGER A TU FAMILIA EN INTERNET.</strong>
-    <p style="text-align: center;">Te recomendamos las siguientes herramientas gratuitas:</p>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon"><i class="bi bi-android icon"></i></div>
-          <h4>Android</h4>
-          <h4>Google Family Link</h4>
-          <p>
-            Family Link funciona con dispositivos Android con la versión 7.0 (Nougat) (15/06/2016), o superior.
-            Es posible que este mismo producto pueda ser utilizado en dispositivos con las versiones de Android 5.0
-            y 6.0 (Lollipop y Marshmallow).
-          </p>
-          <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.kids.familylink" class="btn btn-primary mt-4" target="_blank">
-            Descargar
-          </a>
-          <a href="https://families.google/intl/es-419_ALL/familylink/" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
-        </div>
-      </div>
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-            <i class="bi bi-windows icon" style="font-size: 2rem;"></i>
+      <!-- IZQUIERDA -->
+      <div class="col-lg-7">
+        <div class="reviews-summary-card mb-4">
+          <div class="summary-score">
+            <h3 id="averageRating">5.0</h3>
+            <div class="summary-stars" id="summaryStars">★★★★★</div>
+            <p><span id="reviewCount">4</span> reseñas</p>
           </div>
-          <h4>Windows</h4>
-          <h4>Windows Family Options</h4>
-          <p>
-            Desde la versión 10. Aplica solamente para cuentas de Microsoft Edge. 
-            Incluye la Administración de dispositivos iOS y Android vinculados a tu cuenta de Microsoft.
-          </p>
-          <a href="https://support.microsoft.com/es-es/windows/opciones-de-familia-en-la-aplicaci%C3%B3n-seguridad-de-windows-5e8b9fd8-8372-dba0-eba2-46da8e407026" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
-        </div>
-      </div>
 
-
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-            <i class="bi bi-apple icon" style="font-size: 2rem;"></i>
+          <div class="summary-bar-wrap">
+            <div class="summary-bar">
+              <div class="summary-bar-fill" id="summaryBarFill"></div>
+            </div>
+            <span>Satisfacción general</span>
           </div>
-          <h4>iOS</h4>
-          <h4>Contenido y privacidad de tiempo de uso</h4>
-          <p>
-            Desde la versión 13.4 (24/03/2020) y adelante.Equipos: iPhone 6s y posteriores,
-            iPad Air 2 y posteriores, iPad mini 4 y posteriores, y iPod touch (séptima generación)
-          </p>
-          <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
         </div>
+
+        <div id="reviewsList"></div>
       </div>
 
+      <!-- DERECHA -->
+      <div class="col-lg-5">
+        <div class="review-form-card">
+          <h4>Dejá tu reseña</h4>
 
-      <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item position-relative text-center">
-          <div class="icon">
-            <i class="bi bi-laptop icon" style="font-size: 2rem;"></i>
+          <label for="reviewName" class="form-label">Tu nombre</label>
+          <input type="text" id="reviewName" class="form-control mb-3" placeholder="Ej: Juan Pérez">
+
+          <label class="form-label">Tu calificación</label>
+          <div class="rating-selector mb-3" id="ratingSelector">
+            <span data-value="1">★</span>
+            <span data-value="2">★</span>
+            <span data-value="3">★</span>
+            <span data-value="4">★</span>
+            <span data-value="5">★</span>
           </div>
-          <h4>macOS</h4>
-          <h4>Contenido y privacidad de tiempo de uso</h4>
-          <p>
-            Desde la versión Catalina 10.15 (07/10/2019).Las mismas de iOS dado que las configuraciones están asociadas 
-            a la cuenta iCloud y no exclusivamente al dispositivo en sí.
+
+          <label for="reviewComment" class="form-label">Comentario</label>
+          <textarea id="reviewComment" class="form-control mb-3" rows="5" placeholder="Contanos tu experiencia..."></textarea>
+
+          <button type="button" class="btn btn-success w-100" id="submitReview">
+            Enviar reseña
+          </button>
+
+          <p class="review-note mt-3 mb-0">
+            * Al enviar, aceptás que mostremos tu nombre, puntaje y comentario en esta página.
           </p>
-          <a href="https://support.apple.com/es-es/105121" class="btn btn-primary mt-4" target="_blank">
-            Ver tutorial de uso
-          </a>
         </div>
       </div>
-            
-      </div>
+
     </div>
-
   </div>
+</section>
 
-
-<!-- Services Section -->
-<section id="services" class="services section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <h2>CONTROLES PARENTALES</h2>
-    <p style="margin-top: 20px; text-align: justify;">
-    La Ley N° 5653 de Protección de niños, niñas y adolescentes contra contenidos nocivos de internet, de fecha 24 de agosto de 2016, establece en su Art. N° 1, que tiene por objeto la protección integral de niños, niñas y adolescentes a los efectos que puedan generar en ellos contenidos nocivos a que se accedan o se encuentren en Internet. 
-    Así mismo, el Decreto N° 8098-2022, de fecha 27 de octubre de 2022, reglamenta la Ley N° 5653-2016 de protección de niños, niñas y adolescentes contra contenidos nocivos de internet. 
-    </p>
-    <p style="margin-top: 20px;">
-      Otros recursos sobre cómo configurar de manera segura y proteger los dispositivos de sus hijos:
-    </p>
-  <a href="https://www.internetmatters.org/parental-controls/" class="btn btn-primary mt-4" target="_blank">
-    Parental Controls
-  </a>
-  </div><!-- End Section Title -->
-</div>
-
-    
-    <!-- Contact Section -->
     <section id="contact" class="contact section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contacto</h2>
         <p><strong>Contacta para más información sobre nuestros servicios.</strong></p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
-
           <div class="col-lg-5">
-
             <div class="info-wrap">
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
@@ -1234,7 +1672,7 @@
                   <h3>Dirección</h3>
                   <p>Barrio San Francisco.</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
@@ -1243,7 +1681,7 @@
                   <p>(0974) 500 519</p>
                   <p>(0983) 399 215</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
@@ -1251,36 +1689,29 @@
                   <h3>Email</h3>
                   <p>consorciospynet@gmail.com</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3598.5069638251657!2d-56.87185!3d-25.588064999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDM1JzE3LjAiUyA1NsKwNTInMTguNyJX!5e0!3m2!1ses-419!2spy!4v1735343274690!5m2!1ses-419!2spy" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3598.5069638251657!2d-56.87185!3d-25.588064999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDM1JzE3LjAiUyA1NsKwNTInMTguNyJX!5e0!3m2!1ses-419!2spy!4v1735343274690!5m2!1ses-419!2spy" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
 
           <div class="col-lg-7">
-            <!-- Enlace de WhatsApp -->
-            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-              <p class="pb-3"><strong>Contáctanos por WhatsApp:</strong></p>
+            <div class="contact-cta-box" data-aos="fade-up" data-aos-delay="200">
+              <p class="pb-2"><strong>Contáctanos por WhatsApp</strong></p>
               <a href="https://wa.me/595974500519" class="btn btn-whatsapp">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 30px; margin-right: 10px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 28px;">
                 Enviar mensaje por WhatsApp
               </a>
-              <img src="assets/img/IMG_20241129_153924.jpg" alt="Imagen descriptiva" style="width: 70%; margin-top: 15px;">
+              <img src="assets/img/IMG_20241129_153924.jpg" alt="Imagen descriptiva" class="contact-visual">
             </div>
           </div>
-
         </div>
-
       </div>
-
-    </section><!-- /Contact Section -->
+    </section>
 
   </main>
 
   <footer id="footer" class="footer">
-
-   
-
     <div class="container footer-top">
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
@@ -1290,10 +1721,9 @@
           <div class="footer-contact pt-3">
             <p>Barrio San Francisco.</p>
             <p>Sobre la ruta Teniente Eligio Montanía, frente a la plaza. Barrio San Francisco.</p>
-            <p class="mt-3"><h4>Celular:</h4> 
-            <span>(0974) 500 519</span></p>
-            <span>(0983) 399 215</span></p>
-            <p><h4>Email:</h4> <span>consorciospynet@gmail.com</span></p>
+            <p class="mt-3"><strong>Celular:</strong> <span>(0974) 500 519</span></p>
+            <p><span>(0983) 399 215</span></p>
+            <p><strong>Email:</strong> <span>consorciospynet@gmail.com</span></p>
           </div>
         </div>
 
@@ -1312,59 +1742,38 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nuestros servicios</h4>
           <ul>
-            <p>Internet por fibra óptica.</p>
-            <p>Es sin contrato.</p>
-            <p>De lunes a sábado de 08:00 a 12:00 y de 13:30 a 17:30 hrs</p>
-            <p>Con asistencia técnica hasta los domingos de 10:30 a 15:30 hrs</p>
+            <li>Internet por fibra óptica.</li>
+            <li>Es sin contrato.</li>
+            <li>De lunes a sábado de 08:00 a 12:00 y de 13:30 a 17:30 hrs.</li>
+            <li>Con asistencia técnica hasta los domingos de 10:30 a 15:30 hrs.</li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-12">
           <h4>Síguenos</h4>
-          <p>¡Nos puedes encontrar en facebook e instagram, dale clic y síguenos!</p>
+          <p>¡Nos puedes encontrar en Facebook e Instagram, dale clic y síguenos!</p>
           <div class="social-links d-flex">
-            <a href="https://www.facebook.com/profile.php?id=100094258637981 "><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/spynet_paraguay?igsh=MnR4NHJncG93YmZo "><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100094258637981"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/spynet_paraguay?igsh=MnR4NHJncG93YmZo"><i class="bi bi-instagram"></i></a>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <style>
-        .centrado {
-          text-align: center;
-        }
-      
-        .sitename {
-          font-weight: bold;
-          font-size: 18px;
-          padding: 0 5px; /* Simula el espacio px-1 de Tailwind */
-        }
-      </style>
-      
-      <p class="centrado">
-        © <span>SPYnet</span> <span class="sitename"></span> <span>Sapucai y Valenzuela</span>
-      </p>
+      <p class="centrado">© <span>SPYnet</span> <span>Sapucai y Valenzuela</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Internet por fibra Óptica 100%</a>
+        Internet por fibra Óptica 100%
       </div>
     </div>
-
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -1373,28 +1782,382 @@
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('#navmenu ul');
+      menu.classList.toggle('show');
+    }
+
+    document.querySelectorAll('#navmenu ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        const menu = document.querySelector('#navmenu ul');
+        if (window.innerWidth <= 992) {
+          menu.classList.remove('show');
+        }
+      });
+    });
+  </script>
+
+
 <script>
-  function toggleMenu() {
-    const menu = document.querySelector('#navmenu ul');
-    menu.classList.toggle('show');
+  const scrollCards = document.querySelector('.scroll-cards');
+
+  let autoScroll;
+
+  function iniciarScroll() {
+    autoScroll = setInterval(() => {
+      scrollCards.scrollBy({
+        left: 240,
+        behavior: 'smooth'
+      });
+
+      if (scrollCards.scrollLeft + scrollCards.clientWidth >= scrollCards.scrollWidth - 10) {
+        scrollCards.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+    }, 1200); // velocidad normal
   }
 
-  // Cierra el menú después de hacer clic en un enlace (solo en móvil)
-  document.querySelectorAll('#navmenu ul li a').forEach(link => {
-    link.addEventListener('click', () => {
-      const menu = document.querySelector('#navmenu ul');
-      if (window.innerWidth <= 992) {
-        menu.classList.remove('show');
+  function detenerScroll() {
+    clearInterval(autoScroll);
+  }
+
+  // iniciar automático
+  iniciarScroll();
+
+  // 🖱️ PC → cuando pasa el mouse
+  scrollCards.addEventListener('mouseenter', detenerScroll);
+  scrollCards.addEventListener('mouseleave', iniciarScroll);
+
+  // 📱 CELULAR → cuando toca
+  scrollCards.addEventListener('touchstart', detenerScroll);
+  scrollCards.addEventListener('touchend', iniciarScroll);
+</script>
+
+<script>
+  const kitsScroll = document.querySelector('.kits-scroll');
+
+  let autoScrollKits;
+
+  function iniciarKits() {
+    autoScrollKits = setInterval(() => {
+      kitsScroll.scrollBy({
+        left: 240,
+        behavior: 'smooth'
+      });
+
+      if (kitsScroll.scrollLeft + kitsScroll.clientWidth >= kitsScroll.scrollWidth - 10) {
+        kitsScroll.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        });
       }
+    }, 1300);
+  }
+
+  function detenerKits() {
+    clearInterval(autoScrollKits);
+  }
+
+  iniciarKits();
+
+  kitsScroll.addEventListener('mouseenter', detenerKits);
+  kitsScroll.addEventListener('mouseleave', iniciarKits);
+
+  kitsScroll.addEventListener('touchstart', detenerKits);
+  kitsScroll.addEventListener('touchend', iniciarKits);
+</script>
+
+
+
+<script>
+  const STORAGE_KEY = 'spynet_reviews_v1';
+
+  const defaultReviews = [
+    {
+      name: 'María Carolina',
+      rating: 5,
+      comment: 'Tienen buen servicio, es bueno que tengan hasta los domingos, así no se espera mucho tiempo por la asistencia.',
+      image: 'assets/img/testimonials/FB_IMG_1743789045438.jpg'
+    },
+    {
+      name: 'Nelson Pérez',
+      rating: 5,
+      comment: 'Vienen rápido cuando se necesita asistencia, recomendado.',
+      image: 'assets/img/testimonials/IMG-20250401-WA0008.jpg'
+    },
+    {
+      name: 'Ruth Arzamendia',
+      rating: 5,
+      comment: 'Puedo trabajar a gusto con mi wifi, y buena asistencia.',
+      image: 'assets/img/testimonials/FB_IMG_1743534727811.jpg'
+    },
+    {
+      name: 'Claudia Guillén',
+      rating: 5,
+      comment: 'Excelente servicio.',
+      image: 'assets/img/testimonials/FB_IMG_1739536159660.jpg'
+    }
+  ];
+
+  let selectedRating = 0;
+
+  const ratingStars = document.querySelectorAll('#ratingSelector span');
+  const submitReviewBtn = document.getElementById('submitReview');
+  const reviewsList = document.getElementById('reviewsList');
+  const averageRatingEl = document.getElementById('averageRating');
+  const reviewCountEl = document.getElementById('reviewCount');
+  const summaryBarFillEl = document.getElementById('summaryBarFill');
+  const summaryStarsEl = document.getElementById('summaryStars');
+
+  function updateStarSelection(value) {
+    ratingStars.forEach(star => {
+      const starValue = Number(star.dataset.value);
+      star.classList.toggle('active', starValue <= value);
     });
+  }
+
+  ratingStars.forEach(star => {
+    star.addEventListener('click', () => {
+      selectedRating = Number(star.dataset.value);
+      updateStarSelection(selectedRating);
+    });
+  });
+
+  function getStarString(rating) {
+    return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+  }
+
+  function getInitials(name) {
+    return name
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map(part => part[0]?.toUpperCase() || '')
+      .join('');
+  }
+
+  function escapeHtml(text) {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  function loadReviews() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultReviews));
+    return defaultReviews;
+  }
+
+  function saveReviews(reviews) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+  }
+
+  function createReviewCard(review) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'review-card d-flex align-items-start';
+    wrapper.dataset.rating = review.rating;
+
+    const safeName = escapeHtml(review.name);
+    const safeComment = escapeHtml(review.comment);
+
+    let avatarHtml = '';
+    if (review.image) {
+      avatarHtml = `
+        <div class="review-avatar">
+          <img src="${review.image}" alt="${safeName}">
+        </div>
+      `;
+    } else {
+      avatarHtml = `
+        <div class="review-avatar">
+          <div class="review-avatar-circle">${getInitials(review.name)}</div>
+        </div>
+      `;
+    }
+
+    wrapper.innerHTML = `
+      ${avatarHtml}
+      <div class="review-content">
+        <div class="review-header">
+          <h4>${safeName}</h4>
+          <small>Cliente</small>
+        </div>
+        <div class="stars">${getStarString(review.rating)}</div>
+        <p>${safeComment}</p>
+      </div>
+    `;
+    return wrapper;
+  }
+
+  function renderReviews() {
+    const reviews = loadReviews();
+    reviewsList.innerHTML = '';
+    reviews.forEach(review => {
+      reviewsList.appendChild(createReviewCard(review));
+    });
+    updateSummary();
+  }
+
+  function updateSummary() {
+    const reviews = loadReviews();
+    const total = reviews.reduce((sum, review) => sum + Number(review.rating || 0), 0);
+    const average = reviews.length ? total / reviews.length : 0;
+
+    averageRatingEl.textContent = average.toFixed(1);
+    reviewCountEl.textContent = reviews.length;
+    summaryBarFillEl.style.width = `${(average / 5) * 100}%`;
+
+    const rounded = Math.round(average);
+    summaryStarsEl.textContent = getStarString(rounded);
+  }
+
+  submitReviewBtn.addEventListener('click', () => {
+    const nameInput = document.getElementById('reviewName');
+    const commentInput = document.getElementById('reviewComment');
+
+    const name = nameInput.value.trim();
+    const comment = commentInput.value.trim();
+
+    if (!name) {
+      alert('Escribí tu nombre.');
+      return;
+    }
+
+    if (selectedRating === 0) {
+      alert('Seleccioná una calificación.');
+      return;
+    }
+
+    if (!comment) {
+      alert('Escribí tu comentario.');
+      return;
+    }
+
+    const reviews = loadReviews();
+    reviews.push({
+      name,
+      rating: selectedRating,
+      comment,
+      image: ''
+    });
+
+    saveReviews(reviews);
+    renderReviews();
+
+    nameInput.value = '';
+    commentInput.value = '';
+    selectedRating = 0;
+    updateStarSelection(0);
+
+    alert('Tu reseña fue guardada correctamente.');
+  });
+
+  renderReviews();
+</script>
+
+
+<script>
+  new Swiper('.corporativo-swiper', {
+    loop: true,
+    speed: 700,
+    spaceBetween: 20,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.corporativo-swiper .swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.corporativo-swiper .swiper-button-next',
+      prevEl: '.corporativo-swiper .swiper-button-prev'
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      1200: {
+        slidesPerView: 4
+      }
+    }
   });
 </script>
 
-</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const galeriaSwiper = new Swiper('.galeria-swiper', {
+    loop: false,
+    speed: 700,
+    spaceBetween: 20,
+    slidesPerView: 1,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.galeria-swiper .swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.galeria-swiper .swiper-button-next',
+      prevEl: '.galeria-swiper .swiper-button-prev'
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      1200: {
+        slidesPerView: 3
+      }
+    }
+  });
 
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const gallerySlides = document.querySelectorAll('#galeriaWrapper .swiper-slide');
+
+  function applyGalleryFilter(filter) {
+    gallerySlides.forEach(slide => {
+      const category = slide.getAttribute('data-category');
+      slide.style.display = (filter === 'all' || category === filter) ? '' : 'none';
+    });
+
+    galeriaSwiper.update();
+    galeriaSwiper.slideTo(0, 0);
+
+    galeriaSwiper.autoplay.stop();
+    galeriaSwiper.autoplay.start();
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      applyGalleryFilter(button.getAttribute('data-filter'));
+    });
+  });
+
+  applyGalleryFilter('all');
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</body>
 </html>
