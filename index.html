@@ -1784,21 +1784,35 @@
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.querySelector('#navmenu ul');
-      menu.classList.toggle('show');
-    }
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    document.querySelectorAll('#navmenu ul li a').forEach(link => {
-      link.addEventListener('click', () => {
-        const menu = document.querySelector('#navmenu ul');
-        if (window.innerWidth <= 992) {
-          menu.classList.remove('show');
-        }
-      });
+  const menu = document.querySelector('#navmenu ul');
+  const icon = document.querySelector('.mobile-nav-toggle');
+
+  window.toggleMenu = function () {
+
+    menu.classList.toggle('show');
+
+    if (menu.classList.contains('show')) {
+      icon.innerHTML = '&times;';
+      document.body.style.overflow = 'hidden';
+    } else {
+      icon.innerHTML = '&#9776;';
+      document.body.style.overflow = '';
+    }
+  };
+
+  document.querySelectorAll('#navmenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('show');
+      icon.innerHTML = '&#9776;';
+      document.body.style.overflow = '';
     });
-  </script>
+  });
+
+});
+</script>
 
 
 <script>
@@ -2154,25 +2168,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   applyGalleryFilter('all');
-});
-</script>
-
-<script>
-function toggleMenu() {
-  const menu = document.querySelector('#navmenu ul');
-  const icon = document.querySelector('.mobile-nav-toggle');
-
-  menu.classList.toggle('show');
-  icon.textContent = menu.classList.contains('show') ? '✕' : '☰';
-}
-
-document.querySelectorAll('#navmenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    const menu = document.querySelector('#navmenu ul');
-    const icon = document.querySelector('.mobile-nav-toggle');
-    menu.classList.remove('show');
-    icon.textContent = '☰';
-  });
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
