@@ -881,6 +881,10 @@
         width: 100%;
       }
     }
+    [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
   </style>
 </head>
 
@@ -1818,6 +1822,14 @@
   </a>
 
   <div id="preloader"></div>
+  <script>
+window.addEventListener("load", function () {
+  const preloader = document.querySelector("#preloader");
+  if (preloader) {
+    preloader.remove();
+  }
+});
+</script>
 
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
@@ -2216,6 +2228,14 @@ document.addEventListener("DOMContentLoaded", function () {
   applyGalleryFilter('all');
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof AOS !== "undefined") {
+    AOS.init();
+  }
+});
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
