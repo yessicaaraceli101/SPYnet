@@ -841,34 +841,33 @@
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo.png" alt="SPYnet">
-        <h1>SPYnet</h1>
-      </a>
+  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+    <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <img src="assets/img/logo.png" alt="SPYnet">
+      <h1>SPYnet</h1>
+    </a>
 
-      <nav id="navmenu" class="navmenu">
-        <div class="nav-container">
-          <ul>
-            <li><a href="#hero" class="active">Inicio</a></li>
-            <li><a href="#about">Sobre SPYnet</a></li>
-            <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
-            <li><a href="#planes">Planes Corporativos</a></li>
-            <li><a href="#portfolio">Galería</a></li>
-            <li><a href="#consorcio">Consorcio SPY</a></li>
-            <li><a href="#kits">Promo kits de cámaras</a></li>
-            <li><a href="#social">Compromiso Social</a></li>
-            <li><a href="#team">Equipo SPYnet</a></li>
-            <li><a href="#resenas">Reseñas</a></li>
-            <li><a href="#parental">Control Parental</a></li>
-            <li><a href="#contact">Contacto</a></li>
-          </ul>
-          <i class="mobile-nav-toggle" onclick="toggleMenu()"></i>
-        </div>
-      </nav>
-    </div>
-  </header>
-
+    <nav id="navmenu" class="navmenu">
+      <div class="nav-container">
+        <ul>
+          <li><a href="#hero" class="active">Inicio</a></li>
+          <li><a href="#about">Sobre SPYnet</a></li>
+          <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
+          <li><a href="#planes">Planes Corporativos</a></li>
+          <li><a href="#portfolio">Galería</a></li>
+          <li><a href="#consorcio">Consorcio SPY</a></li>
+          <li><a href="#kits">Promo kits de cámaras</a></li>
+          <li><a href="#social">Compromiso Social</a></li>
+          <li><a href="#team">Equipo SPYnet</a></li>
+          <li><a href="#resenas">Reseñas</a></li>
+          <li><a href="#parental">Control Parental</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+        <i class="mobile-nav-toggle" onclick="toggleMenu()">☰</i>
+      </div>
+    </nav>
+  </div>
+</header>
   <main class="main">
 
     <section id="hero" class="hero section dark-background">
@@ -2160,12 +2159,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 function toggleMenu() {
-  document.body.classList.toggle("mobile-nav-active");
+  const menu = document.querySelector('#navmenu ul');
+  const icon = document.querySelector('.mobile-nav-toggle');
+
+  menu.classList.toggle('show');
+  icon.textContent = menu.classList.contains('show') ? '✕' : '☰';
 }
 
 document.querySelectorAll('#navmenu a').forEach(link => {
   link.addEventListener('click', () => {
-    document.body.classList.remove("mobile-nav-active");
+    const menu = document.querySelector('#navmenu ul');
+    const icon = document.querySelector('.mobile-nav-toggle');
+    menu.classList.remove('show');
+    icon.textContent = '☰';
   });
 });
 </script>
