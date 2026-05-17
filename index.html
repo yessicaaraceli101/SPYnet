@@ -724,91 +724,137 @@
     }
 
     @media (max-width: 992px) {
-      .header {
-        padding: 10px 0;
-      }
 
-      .mobile-nav-toggle {
-        display: inline-flex !important;
-      }
+  .header {
+    padding: 12px 0;
+    background: rgba(36, 63, 112, 0.97);
+    backdrop-filter: blur(10px);
+  }
 
-      #navmenu .nav-container {
-        flex-direction: column;
-        align-items: flex-end;
-        width: 100%;
-      }
+  .logo h1 {
+    font-size: 1.6rem !important;
+  }
 
-      #navmenu ul {
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        background: #fff;
-        border-radius: 18px;
-        padding: 14px;
-        margin-top: 10px;
-        box-shadow: 0 18px 38px rgba(19, 35, 70, 0.16);
-      }
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    font-family: Arial, sans-serif !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+  }
 
-      #navmenu ul.show {
-        display: flex;
-      }
+  #navmenu .nav-container {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    width: auto !important;
+    gap: 10px;
+  }
 
-      #navmenu a {
-        color: var(--spynet-primary-dark);
-        width: 100%;
-        border-radius: 12px;
-        justify-content: flex-start;
-      }
+  #navmenu ul {
+    display: none;
+    position: absolute;
+    top: 78px;
+    right: 12px;
+    left: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    background: rgba(255,255,255,0.98);
+    border-radius: 24px;
+    padding: 16px;
+    margin-top: 0;
+    box-shadow: 0 22px 45px rgba(19, 35, 70, 0.18);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+  }
 
-      #navmenu a:hover,
-      #navmenu a.active {
-        background: rgba(52, 84, 139, 0.08);
-        color: var(--spynet-primary-dark);
-      }
+  #navmenu ul.show {
+    display: flex;
+  }
 
-      .hero {
-        padding-top: 135px;
-        text-align: center;
-      }
+  #navmenu a {
+    color: var(--spynet-primary-dark);
+    width: 100%;
+    border-radius: 14px;
+    justify-content: flex-start;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-weight: 600;
+  }
 
-      .hero h1,
-      .hero p {
-        max-width: 100%;
-      }
+  #navmenu a:hover,
+  #navmenu a.active {
+    background: rgba(52, 84, 139, 0.08);
+    color: var(--spynet-primary-dark);
+  }
 
-      .hero .d-flex {
-        justify-content: center;
-      }
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 55px;
+    text-align: center;
+  }
 
-      #heroCarousel img {
-        min-height: 320px;
-        max-height: 320px;
-      }
+  .hero h1 {
+    max-width: 100%;
+    font-size: 2rem;
+    line-height: 1.15;
+  }
 
-      .team-member,
-      .testimonio.card {
-        flex-direction: column;
-        text-align: center;
-      }
+  .hero p {
+    max-width: 100%;
+    font-size: 1rem;
+  }
 
-      .team-member .pic,
-      .testimonio .pic {
-        flex: none;
-      }
+  .hero .d-flex {
+    justify-content: center;
+  }
 
-      .contact-visual {
-        width: 100%;
-      }
+  #heroCarousel {
+    border-radius: 28px;
+    overflow: hidden;
+    padding: 10px;
+  }
 
-      .spynet-social-block {
-        flex-direction: column;
-      }
+  #heroCarousel img {
+    min-height: 250px;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
 
-      .spynet-social-block img {
-        max-width: 100%;
-      }
-    }
+  .team-member,
+  .testimonio.card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-member .pic,
+  .testimonio .pic {
+    flex: none;
+  }
+
+  .contact-visual {
+    width: 100%;
+  }
+
+  .spynet-social-block {
+    flex-direction: column;
+  }
+
+  .spynet-social-block img {
+    max-width: 100%;
+  }
+}
 
     @media (max-width: 768px) {
       section.section {
