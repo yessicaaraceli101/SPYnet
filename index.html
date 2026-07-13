@@ -897,6 +897,231 @@
   opacity: 1 !important;
   transform: none !important;
 }
+/* ===== SECCIÓN MARCAS ===== */
+.marcas {
+  padding: 60px 0;
+  background: linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
+  overflow: hidden;
+}
+
+.marcas .section-title h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #243f70;
+}
+
+.marcas-scroll-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.marcas-scroll-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #eef4fb);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.marcas-scroll-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(to left, transparent, #eef4fb);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.marcas-scroll {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 40px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.marcas-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.marca-card {
+  min-width: 280px;
+  max-width: 320px;
+  flex: 0 0 auto;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px 24px 28px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(25, 48, 94, 0.10);
+  border: 1px solid rgba(52, 84, 139, 0.08);
+  scroll-snap-align: start;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.marca-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(25, 48, 94, 0.18);
+}
+
+.marca-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0f6ff, #e3edfc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  border: 2px solid rgba(52, 84, 139, 0.10);
+  transition: border-color 0.3s ease;
+}
+
+.marca-card:hover .marca-logo {
+  border-color: #34548b;
+}
+
+.marca-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
+}
+
+.marca-card h4 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #243f70;
+  margin-bottom: 10px;
+}
+
+.marca-card p {
+  font-size: 0.95rem;
+  color: #6d7b98;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .marca-card {
+    min-width: 240px;
+    padding: 24px 16px;
+  }
+
+  .marca-logo {
+    width: 90px;
+    height: 90px;
+    padding: 12px;
+  }
+
+  .marcas-scroll {
+    gap: 20px;
+    padding: 10px 20px;
+  }
+
+  .marcas-scroll-wrapper::before,
+  .marcas-scroll-wrapper::after {
+    width: 30px;
+  }
+}
+.marcas-scroll-wrapper {
+  width: 100%;
+}
+
+.marcas-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 10px 4px 20px;
+}
+
+.marca-card {
+  flex: 0 0 auto;
+  width: 260px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 18px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.marca-logo {
+  background: none;
+  border-radius: 0;
+  width: 100%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.marca-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.6s ease;
+}
+
+.marca-card h4 {
+  color: var(--spynet-primary-dark, #243f70);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.marca-card p {
+  color: var(--spynet-muted, #6d7b98);
+  font-size: 0.92rem;
+}
+
+/* Efecto: la tarjeta activa se destaca */
+.marca-card.marca-active {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(25, 48, 94, 0.16);
+}
+
+.marca-card.marca-active .marca-logo img {
+  transform: scale(1.08);
+}
+.header .container-fluid {
+  justify-content: space-between; /* separa logo y nav en extremos opuestos */
+  align-items: flex-start;
+}
+
+.logo {
+  flex: 0 0 auto;
+  margin-right: 60px;   /* aumenta este valor si querés más separación */
+  padding-left: 10px;   /* opcional: aleja el logo del borde izquierdo */
+}
+
+#navmenu {
+  flex: 0 1 auto;        /* que el nav no se estire de más hacia el logo */
+  margin-left: auto;     /* lo empuja hacia la derecha */
+}
+
+#navmenu ul {
+  justify-content: flex-end;
+  row-gap: 8px;
+  column-gap: 20px;
+  flex-wrap: wrap;
+}
+#navmenu ul li:first-child {
+  margin-left: 40px; /* o el valor que necesites para alinear "Inicio" más a la derecha */
+}
+
   </style>
 </head>
 
@@ -912,19 +1137,20 @@
     <nav id="navmenu" class="navmenu">
       <div class="nav-container">
         <ul>
-          <li><a href="#hero" class="active">Inicio</a></li>
-          <li><a href="#about">Sobre SPYnet</a></li>
-          <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
-          <li><a href="#planes">Planes Corporativos</a></li>
-          <li><a href="#portfolio">Galería</a></li>
-          <li><a href="#consorcio">Consorcio SPY</a></li>
-          <li><a href="#kits">Promo kits de cámaras</a></li>
-          <li><a href="#social">Compromiso Social</a></li>
-          <li><a href="#team">Equipo SPYnet</a></li>
-          <li><a href="#resenas">Reseñas</a></li>
-          <li><a href="#parental">Control Parental</a></li>
-          <li><a href="#contact">Contacto</a></li>
-        </ul>
+  <li><a href="#hero" class="active">Inicio</a></li>
+  <li><a href="#about">Sobre SPYnet</a></li>
+  <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
+  <li><a href="#planes">Planes Corporativos</a></li>
+  <li><a href="#portfolio">Galería</a></li>
+  <li><a href="#consorcio">Consorcio SPY</a></li>
+<ul class="fila-2">
+  <li><a href="#kits">Promo kits de cámaras</a></li>
+  <li><a href="#social">Compromiso Social</a></li>
+  <li><a href="#team">Equipo SPYnet</a></li>
+  <li><a href="#resenas">Reseñas</a></li>
+  <li><a href="#parental">Control Parental</a></li>
+  <li><a href="#contact">Contacto</a></li>
+</ul>
         <div class="custom-menu-btn" onclick="toggleMenu()">☰</div>
       </div>
     </nav>
@@ -990,50 +1216,53 @@
   </div>
 </section>
 
-    <section id="clients" class="clients section light-background">
-      <div class="container" data-aos="zoom-in">
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
-              }
-            }
-          </script>
-        </div>
-      </div>
-    </section>
+ <!-- ======= Marcas del Grupo SPY ======= -->
+<section id="marcas" class="marcas section light-background">
 
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Comprometido con la innovación y la calidad.</h2>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="marcas-scroll-wrapper">
+      <div class="marcas-scroll">
+
+        <!-- Marca 1: SPYnet -->
+        <div class="marca-card">
+          <div class="marca-logo">
+            <img src="assets/img/logo.png" alt="SPYnet">
+          </div>
+          <h4>SPYnet</h4>
+          <p>Internet por fibra óptica de alta velocidad Sapucai y Valenzuela.</p>
+        </div>
+
+        <!-- Marca 2: Consorcio SPY -->
+        <div class="marca-card">
+          <div class="marca-logo">
+            <img src="assets/img/consorcio.jpg" alt="Consorcio SPY">
+          </div>
+          <h4>Consorcio SPY</h4>
+          <p>Proyectos e infraestructuras, soluciones tecnológicas.</p>
+        </div>
+
+       <!-- Marca 3: SPYcomers -->
+<div class="marca-card">
+  <div class="marca-logo">
+    <img src="assets/img/flyer.png" alt="SPYcomers">
+  </div>
+  <h4>SPYcomers</h4>
+  <p>Sistemas de gestión, software a medida.</p>
+  <a href="https://spycomersdemo.spynetpy.com/" target="_blank" rel="noopener" class="btn btn-primary btn-sm mt-2">
+    Solicitar prueba gratuita
+  </a>
+</div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
     <section id="about" class="about section">
       <div class="container section-title" data-aos="fade-up">
         <h2>Sobre SPYnet</h2>
@@ -1067,7 +1296,7 @@
               <div class="col-12 d-flex" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-item position-relative card-info">
                   <h4>Visión</h4>
-                  <p>Nos estamos proyectando a ser la empresa de internet más ágil e innovadora del mercado, redefiniendo la forma en que las personas se conectan y son asistidas. Combinamos tecnología inteligente con atención humana todos los días, para ofrecer una experiencia digital cercana, confiable y personalizada. Construimos un equipo comprometido, con pasión por la mejora continua, que transforma cada interacción en una oportunidad para evolucionar y conectar mejor.</p>
+                  <p>Ser la empresa más ágil e innovadora del mercado, redefiniendo la forma en que las personas se conectan y son asistidas. Combinamos tecnología inteligente con atención humana todos los días, para ofrecer una experiencia digital cercana, confiable y personalizada. Construimos un equipo comprometido, con pasión por la mejora continua, que transforma cada interacción en una oportunidad para evolucionar y conectar mejor.</p>
                 </div>
               </div>
             </div>
@@ -1512,19 +1741,7 @@
             </div>
           </div>
 
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="team-member d-flex align-items-start">
-              <div class="pic"><img src="assets/img/team/IMG-20250203-WA0014.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Carlos Balbuena</h4>
-                <p>Técnico autorizado.</p>
-                <div class="social">
-                  <a href="https://www.facebook.com/share/15BEtznCtZ/?mibextid=kFxxJD"><i class="bi bi-facebook"></i></a>
-                  <a href="https://www.instagram.com/carlos_balbuena29?igsh=dXlxZGE3NmxhcXh4&utm_source=qr"><i class="bi bi-instagram"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member d-flex align-items-start">
@@ -1855,32 +2072,20 @@ window.addEventListener("load", function () {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
  <script>
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener('load', function () {
+  // Excluye los slides clonados que crea Swiper para el loop infinito
+  const logos = document.querySelectorAll('#clients .swiper-slide:not(.swiper-slide-duplicate)');
 
-  const menu = document.querySelector('#navmenu ul');
-  const icon = document.querySelector('.custom-menu-btn');
-
-  window.toggleMenu = function () {
-
-    menu.classList.toggle('show');
-
-    if (menu.classList.contains('show')) {
-      icon.innerHTML = '&times;';
-      document.body.style.overflow = 'hidden';
-    } else {
-      icon.innerHTML = '&#9776;';
-      document.body.style.overflow = '';
-    }
-  };
-
-  document.querySelectorAll('#navmenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('show');
-      icon.innerHTML = '&#9776;';
-      document.body.style.overflow = '';
-    });
+  logos.forEach((logo, index) => {
+    logo.style.transitionDelay = `${index * 150}ms`;
   });
 
+  // Pequeño delay para asegurar que el navegador ya pintó el estado inicial (opacity 0)
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      logos.forEach(logo => logo.classList.add('visible'));
+    });
+  });
 });
 </script>
 
@@ -2246,6 +2451,96 @@ document.addEventListener("DOMContentLoaded", function () {
     AOS.init();
   }
 });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: false,
+        mirror: true
+      });
+    }
+  });
+</script>
+<script>
+  (function() {
+    "use strict";
+
+    // ===== SCROLL HORIZONTAL AUTOMÁTICO =====
+    const scrollContainer = document.querySelector('.marcas-scroll');
+    let autoScrollMarcas;
+
+    function iniciarScrollMarcas() {
+      autoScrollMarcas = setInterval(() => {
+        if (!scrollContainer) return;
+        scrollContainer.scrollBy({
+          left: 280,
+          behavior: 'smooth'
+        });
+
+        // Si llegó al final, vuelve al principio
+        if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 20) {
+          setTimeout(() => {
+            scrollContainer.scrollTo({
+              left: 0,
+              behavior: 'smooth'
+            });
+          }, 600);
+        }
+      }, 3000);
+    }
+
+    function detenerScrollMarcas() {
+      clearInterval(autoScrollMarcas);
+    }
+
+    if (scrollContainer) {
+      iniciarScrollMarcas();
+
+      scrollContainer.addEventListener('mouseenter', detenerScrollMarcas);
+      scrollContainer.addEventListener('mouseleave', iniciarScrollMarcas);
+
+      scrollContainer.addEventListener('touchstart', detenerScrollMarcas);
+      scrollContainer.addEventListener('touchend', iniciarScrollMarcas);
+    }
+
+    // ===== PARALLAX PARA LA SECCIÓN =====
+    const marcasSection = document.querySelector('#marcas');
+
+    if (marcasSection) {
+      marcasSection.style.willChange = 'transform';
+      marcasSection.style.position = 'relative';
+
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            const offset = window.scrollY;
+            const moveY = offset * 0.06;
+            marcasSection.style.transform = `translateY(${moveY}px)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+    }
+
+  })();
+</script>
+<script>
+  const marcaCards = document.querySelectorAll('.marca-card');
+  let marcaIndex = 0;
+
+  function resaltarMarca() {
+    marcaCards.forEach(card => card.classList.remove('marca-active'));
+    marcaCards[marcaIndex].classList.add('marca-active');
+    marcaIndex = (marcaIndex + 1) % marcaCards.length;
+  }
+
+  resaltarMarca(); // arranca al cargar
+  setInterval(resaltarMarca, 2200);
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
