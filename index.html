@@ -1121,39 +1121,55 @@
 #navmenu ul li:first-child {
   margin-left: 40px; /* o el valor que necesites para alinear "Inicio" más a la derecha */
 }
+@media (min-width:1200px){
 
+.navmenu ul{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px 28px;
+    max-width:950px;
+    margin:auto;
+}
+
+.navmenu li{
+    list-style:none;
+}
+
+}
   </style>
 </head>
 
 <body class="index-page">
 
   <header id="header" class="header d-flex align-items-center fixed-top">
-  <div class="container-fluid container-xl position-relative d-flex align-items-center">
+  <div class="container-fluid container-xl d-flex align-items-center">
+
     <a href="index.html" class="logo d-flex align-items-center me-auto">
       <img src="assets/img/logo.png" alt="SPYnet">
       <h1>SPYnet</h1>
     </a>
 
     <nav id="navmenu" class="navmenu">
-      <div class="nav-container">
-        <ul>
-  <li><a href="#hero" class="active">Inicio</a></li>
-  <li><a href="#about">Sobre SPYnet</a></li>
-  <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
-  <li><a href="#planes">Planes Corporativos</a></li>
-  <li><a href="#portfolio">Galería</a></li>
-  <li><a href="#consorcio">Consorcio SPY</a></li>
-<ul class="fila-2">
-  <li><a href="#kits">Promo kits de cámaras</a></li>
-  <li><a href="#social">Compromiso Social</a></li>
-  <li><a href="#team">Equipo SPYnet</a></li>
-  <li><a href="#resenas">Reseñas</a></li>
-  <li><a href="#parental">Control Parental</a></li>
-  <li><a href="#contact">Contacto</a></li>
-</ul>
-        <div class="custom-menu-btn" onclick="toggleMenu()">☰</div>
-      </div>
-    </nav>
+    <ul>
+        <li><a href="#hero" class="active">Inicio</a></li>
+        <li><a href="#about">Sobre SPYnet</a></li>
+        <li><a href="#services">Servicios, precios y zonas con cobertura</a></li>
+        <li><a href="#planes">Planes Corporativos</a></li>
+        <li><a href="#portfolio">Galería</a></li>
+        <li><a href="#consorcio">Consorcio SPY</a></li>
+        <li><a href="#kits">Promo kits de cámaras</a></li>
+        <li><a href="#social">Compromiso Social</a></li>
+        <li><a href="#team">Equipo SPYnet</a></li>
+        <li><a href="#resenas">Reseñas</a></li>
+        <li><a href="#parental">Control Parental</a></li>
+        <li><a href="#contact">Contacto</a></li>
+    </ul>
+</nav>
+
+    <!-- ESTE VA FUERA DEL NAV -->
+    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
   </div>
 </header>
   <main class="main">
