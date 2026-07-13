@@ -3274,7 +3274,7 @@ p strong {
     padding: 10px 8px;
     display: block;
   }
-}
+
 
 #navmenu ul {
   display: none;
@@ -3282,6 +3282,51 @@ p strong {
 
 #navmenu ul.show {
   display: flex;
+}
+/* ===========================
+   MENÚ MÓVIL
+=========================== */
+
+@media (max-width:1199px){
+
+  .mobile-nav-toggle{
+      display:block !important;
+      font-size:32px;
+      cursor:pointer;
+      z-index:9999;
+      color:#fff;
+  }
+
+  .navmenu ul{
+      display:none;
+  }
+
+  body.mobile-nav-active .navmenu ul{
+      display:flex !important;
+      flex-direction:column;
+      position:fixed;
+      top:80px;
+      left:15px;
+      right:15px;
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 0 30px rgba(0,0,0,.2);
+      z-index:9998;
+  }
+
+  body.mobile-nav-active .navmenu ul li{
+      width:100%;
+      list-style:none;
+  }
+
+  body.mobile-nav-active .navmenu ul li a{
+      display:block;
+      color:#243f70 !important;
+      padding:12px 0;
+      font-size:17px;
+  }
+
 }
 
 /* ===== MEJORA PROFESIONAL HEADER + INICIO ===== */
