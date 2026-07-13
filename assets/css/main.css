@@ -3268,30 +3268,6 @@ p strong {
   display: none;
 }
 
-@media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    display: block !important;
-    font-size: 32px;
-    color: #fff;
-    cursor: pointer;
-    line-height: 1;
-    z-index: 10001;
-  }
-
-  .mobile-nav-toggle::before {
-    content: "☰";
-  }
-
-  body.mobile-nav-active .mobile-nav-toggle::before {
-    content: "✕";
-  }
-}
-
-@media (max-width: 1199px) {
-  .navmenu ul {
-    display: none;
-  }
-
 
   body.mobile-nav-active .navmenu ul li a {
     color: #243f70 !important;
@@ -3384,35 +3360,6 @@ p strong {
   #heroCarousel img,
   .hero .carousel-item img {
     height: 230px !important;
-  }
-}
-
-
-
-
-.mobile-nav-toggle {
-  display: none !important;
-}
-
-.custom-menu-btn {
-  display: none;
-}
-
-@media (max-width: 992px) {
-  .custom-menu-btn {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.14);
-    color: #fff;
-    font-size: 30px;
-    line-height: 1;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-    z-index: 99999;
   }
 }
 
